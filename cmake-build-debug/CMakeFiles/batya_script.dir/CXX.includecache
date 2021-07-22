@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.hpp
+vector
+-
+
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.hpp
+array
+-
+
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/interpreter.hpp
+vector
+-
+stack.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.hpp
+
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.hpp
+vector
+-
+
+/mnt/c/Users/Name/CLionProjects/batya_script/main.cpp
+iostream
+-
+cstring
+-
+stack
+-
+map
+-
+bytecode/bytecode_builder.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.hpp
+bytecode/interpreter.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/interpreter.hpp
+bytecode/codes.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.hpp
+

@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/batya_script.dir/main.cpp.o CMakeFiles/batya_script.dir/string_utility.cpp.o CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o CMakeFiles/batya_script.dir/bytecode/stack.cpp.o  -o batya_script 
