@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <keyword key = "var" value = "var"/>
+    <keyword key = "val" value = "val"/>
+    <keyword key = "while" value = "while"/>
+    <keyword key = "do" value = "do"/>
+    <keyword key = "if" value = "if"/>
+    <keyword key = "else" value = "else"/>
+    <keyword key = "is" value = "is"/>
+</resources>

@@ -123,6 +123,438 @@ batya_script/fast:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/build
 .PHONY : batya_script/fast
 
+ast/assignment.o: ast/assignment.cpp.o
+
+.PHONY : ast/assignment.o
+
+# target to build an object file
+ast/assignment.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/assignment.cpp.o
+.PHONY : ast/assignment.cpp.o
+
+ast/assignment.i: ast/assignment.cpp.i
+
+.PHONY : ast/assignment.i
+
+# target to preprocess a source file
+ast/assignment.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/assignment.cpp.i
+.PHONY : ast/assignment.cpp.i
+
+ast/assignment.s: ast/assignment.cpp.s
+
+.PHONY : ast/assignment.s
+
+# target to generate assembly for a file
+ast/assignment.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/assignment.cpp.s
+.PHONY : ast/assignment.cpp.s
+
+ast/binary_operator.o: ast/binary_operator.cpp.o
+
+.PHONY : ast/binary_operator.o
+
+# target to build an object file
+ast/binary_operator.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/binary_operator.cpp.o
+.PHONY : ast/binary_operator.cpp.o
+
+ast/binary_operator.i: ast/binary_operator.cpp.i
+
+.PHONY : ast/binary_operator.i
+
+# target to preprocess a source file
+ast/binary_operator.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/binary_operator.cpp.i
+.PHONY : ast/binary_operator.cpp.i
+
+ast/binary_operator.s: ast/binary_operator.cpp.s
+
+.PHONY : ast/binary_operator.s
+
+# target to generate assembly for a file
+ast/binary_operator.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/binary_operator.cpp.s
+.PHONY : ast/binary_operator.cpp.s
+
+ast/conditional.o: ast/conditional.cpp.o
+
+.PHONY : ast/conditional.o
+
+# target to build an object file
+ast/conditional.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/conditional.cpp.o
+.PHONY : ast/conditional.cpp.o
+
+ast/conditional.i: ast/conditional.cpp.i
+
+.PHONY : ast/conditional.i
+
+# target to preprocess a source file
+ast/conditional.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/conditional.cpp.i
+.PHONY : ast/conditional.cpp.i
+
+ast/conditional.s: ast/conditional.cpp.s
+
+.PHONY : ast/conditional.s
+
+# target to generate assembly for a file
+ast/conditional.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/conditional.cpp.s
+.PHONY : ast/conditional.cpp.s
+
+ast/declarations/declaration.o: ast/declarations/declaration.cpp.o
+
+.PHONY : ast/declarations/declaration.o
+
+# target to build an object file
+ast/declarations/declaration.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o
+.PHONY : ast/declarations/declaration.cpp.o
+
+ast/declarations/declaration.i: ast/declarations/declaration.cpp.i
+
+.PHONY : ast/declarations/declaration.i
+
+# target to preprocess a source file
+ast/declarations/declaration.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.i
+.PHONY : ast/declarations/declaration.cpp.i
+
+ast/declarations/declaration.s: ast/declarations/declaration.cpp.s
+
+.PHONY : ast/declarations/declaration.s
+
+# target to generate assembly for a file
+ast/declarations/declaration.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.s
+.PHONY : ast/declarations/declaration.cpp.s
+
+ast/declarations/variable_declaration.o: ast/declarations/variable_declaration.cpp.o
+
+.PHONY : ast/declarations/variable_declaration.o
+
+# target to build an object file
+ast/declarations/variable_declaration.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o
+.PHONY : ast/declarations/variable_declaration.cpp.o
+
+ast/declarations/variable_declaration.i: ast/declarations/variable_declaration.cpp.i
+
+.PHONY : ast/declarations/variable_declaration.i
+
+# target to preprocess a source file
+ast/declarations/variable_declaration.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.i
+.PHONY : ast/declarations/variable_declaration.cpp.i
+
+ast/declarations/variable_declaration.s: ast/declarations/variable_declaration.cpp.s
+
+.PHONY : ast/declarations/variable_declaration.s
+
+# target to generate assembly for a file
+ast/declarations/variable_declaration.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.s
+.PHONY : ast/declarations/variable_declaration.cpp.s
+
+ast/expression.o: ast/expression.cpp.o
+
+.PHONY : ast/expression.o
+
+# target to build an object file
+ast/expression.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/expression.cpp.o
+.PHONY : ast/expression.cpp.o
+
+ast/expression.i: ast/expression.cpp.i
+
+.PHONY : ast/expression.i
+
+# target to preprocess a source file
+ast/expression.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/expression.cpp.i
+.PHONY : ast/expression.cpp.i
+
+ast/expression.s: ast/expression.cpp.s
+
+.PHONY : ast/expression.s
+
+# target to generate assembly for a file
+ast/expression.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/expression.cpp.s
+.PHONY : ast/expression.cpp.s
+
+ast/expression_block.o: ast/expression_block.cpp.o
+
+.PHONY : ast/expression_block.o
+
+# target to build an object file
+ast/expression_block.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/expression_block.cpp.o
+.PHONY : ast/expression_block.cpp.o
+
+ast/expression_block.i: ast/expression_block.cpp.i
+
+.PHONY : ast/expression_block.i
+
+# target to preprocess a source file
+ast/expression_block.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/expression_block.cpp.i
+.PHONY : ast/expression_block.cpp.i
+
+ast/expression_block.s: ast/expression_block.cpp.s
+
+.PHONY : ast/expression_block.s
+
+# target to generate assembly for a file
+ast/expression_block.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/expression_block.cpp.s
+.PHONY : ast/expression_block.cpp.s
+
+ast/literals/boolean_literal.o: ast/literals/boolean_literal.cpp.o
+
+.PHONY : ast/literals/boolean_literal.o
+
+# target to build an object file
+ast/literals/boolean_literal.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o
+.PHONY : ast/literals/boolean_literal.cpp.o
+
+ast/literals/boolean_literal.i: ast/literals/boolean_literal.cpp.i
+
+.PHONY : ast/literals/boolean_literal.i
+
+# target to preprocess a source file
+ast/literals/boolean_literal.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.i
+.PHONY : ast/literals/boolean_literal.cpp.i
+
+ast/literals/boolean_literal.s: ast/literals/boolean_literal.cpp.s
+
+.PHONY : ast/literals/boolean_literal.s
+
+# target to generate assembly for a file
+ast/literals/boolean_literal.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.s
+.PHONY : ast/literals/boolean_literal.cpp.s
+
+ast/literals/integer_literal.o: ast/literals/integer_literal.cpp.o
+
+.PHONY : ast/literals/integer_literal.o
+
+# target to build an object file
+ast/literals/integer_literal.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o
+.PHONY : ast/literals/integer_literal.cpp.o
+
+ast/literals/integer_literal.i: ast/literals/integer_literal.cpp.i
+
+.PHONY : ast/literals/integer_literal.i
+
+# target to preprocess a source file
+ast/literals/integer_literal.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.i
+.PHONY : ast/literals/integer_literal.cpp.i
+
+ast/literals/integer_literal.s: ast/literals/integer_literal.cpp.s
+
+.PHONY : ast/literals/integer_literal.s
+
+# target to generate assembly for a file
+ast/literals/integer_literal.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.s
+.PHONY : ast/literals/integer_literal.cpp.s
+
+ast/literals/literal.o: ast/literals/literal.cpp.o
+
+.PHONY : ast/literals/literal.o
+
+# target to build an object file
+ast/literals/literal.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o
+.PHONY : ast/literals/literal.cpp.o
+
+ast/literals/literal.i: ast/literals/literal.cpp.i
+
+.PHONY : ast/literals/literal.i
+
+# target to preprocess a source file
+ast/literals/literal.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/literal.cpp.i
+.PHONY : ast/literals/literal.cpp.i
+
+ast/literals/literal.s: ast/literals/literal.cpp.s
+
+.PHONY : ast/literals/literal.s
+
+# target to generate assembly for a file
+ast/literals/literal.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/literal.cpp.s
+.PHONY : ast/literals/literal.cpp.s
+
+ast/parser/parser.o: ast/parser/parser.cpp.o
+
+.PHONY : ast/parser/parser.o
+
+# target to build an object file
+ast/parser/parser.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o
+.PHONY : ast/parser/parser.cpp.o
+
+ast/parser/parser.i: ast/parser/parser.cpp.i
+
+.PHONY : ast/parser/parser.i
+
+# target to preprocess a source file
+ast/parser/parser.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/parser/parser.cpp.i
+.PHONY : ast/parser/parser.cpp.i
+
+ast/parser/parser.s: ast/parser/parser.cpp.s
+
+.PHONY : ast/parser/parser.s
+
+# target to generate assembly for a file
+ast/parser/parser.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/parser/parser.cpp.s
+.PHONY : ast/parser/parser.cpp.s
+
+ast/parser/token.o: ast/parser/token.cpp.o
+
+.PHONY : ast/parser/token.o
+
+# target to build an object file
+ast/parser/token.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/parser/token.cpp.o
+.PHONY : ast/parser/token.cpp.o
+
+ast/parser/token.i: ast/parser/token.cpp.i
+
+.PHONY : ast/parser/token.i
+
+# target to preprocess a source file
+ast/parser/token.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/parser/token.cpp.i
+.PHONY : ast/parser/token.cpp.i
+
+ast/parser/token.s: ast/parser/token.cpp.s
+
+.PHONY : ast/parser/token.s
+
+# target to generate assembly for a file
+ast/parser/token.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/parser/token.cpp.s
+.PHONY : ast/parser/token.cpp.s
+
+ast/typing/built_in_types_container.o: ast/typing/built_in_types_container.cpp.o
+
+.PHONY : ast/typing/built_in_types_container.o
+
+# target to build an object file
+ast/typing/built_in_types_container.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o
+.PHONY : ast/typing/built_in_types_container.cpp.o
+
+ast/typing/built_in_types_container.i: ast/typing/built_in_types_container.cpp.i
+
+.PHONY : ast/typing/built_in_types_container.i
+
+# target to preprocess a source file
+ast/typing/built_in_types_container.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.i
+.PHONY : ast/typing/built_in_types_container.cpp.i
+
+ast/typing/built_in_types_container.s: ast/typing/built_in_types_container.cpp.s
+
+.PHONY : ast/typing/built_in_types_container.s
+
+# target to generate assembly for a file
+ast/typing/built_in_types_container.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.s
+.PHONY : ast/typing/built_in_types_container.cpp.s
+
+ast/typing/common_type.o: ast/typing/common_type.cpp.o
+
+.PHONY : ast/typing/common_type.o
+
+# target to build an object file
+ast/typing/common_type.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o
+.PHONY : ast/typing/common_type.cpp.o
+
+ast/typing/common_type.i: ast/typing/common_type.cpp.i
+
+.PHONY : ast/typing/common_type.i
+
+# target to preprocess a source file
+ast/typing/common_type.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.i
+.PHONY : ast/typing/common_type.cpp.i
+
+ast/typing/common_type.s: ast/typing/common_type.cpp.s
+
+.PHONY : ast/typing/common_type.s
+
+# target to generate assembly for a file
+ast/typing/common_type.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.s
+.PHONY : ast/typing/common_type.cpp.s
+
+ast/typing/type.o: ast/typing/type.cpp.o
+
+.PHONY : ast/typing/type.o
+
+# target to build an object file
+ast/typing/type.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/type.cpp.o
+.PHONY : ast/typing/type.cpp.o
+
+ast/typing/type.i: ast/typing/type.cpp.i
+
+.PHONY : ast/typing/type.i
+
+# target to preprocess a source file
+ast/typing/type.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/type.cpp.i
+.PHONY : ast/typing/type.cpp.i
+
+ast/typing/type.s: ast/typing/type.cpp.s
+
+.PHONY : ast/typing/type.s
+
+# target to generate assembly for a file
+ast/typing/type.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/type.cpp.s
+.PHONY : ast/typing/type.cpp.s
+
+ast/while.o: ast/while.cpp.o
+
+.PHONY : ast/while.o
+
+# target to build an object file
+ast/while.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/while.cpp.o
+.PHONY : ast/while.cpp.o
+
+ast/while.i: ast/while.cpp.i
+
+.PHONY : ast/while.i
+
+# target to preprocess a source file
+ast/while.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/while.cpp.i
+.PHONY : ast/while.cpp.i
+
+ast/while.s: ast/while.cpp.s
+
+.PHONY : ast/while.s
+
+# target to generate assembly for a file
+ast/while.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/while.cpp.s
+.PHONY : ast/while.cpp.s
+
 bytecode/bytecode_builder.o: bytecode/bytecode_builder.cpp.o
 
 .PHONY : bytecode/bytecode_builder.o
@@ -149,6 +581,33 @@ bytecode/bytecode_builder.s: bytecode/bytecode_builder.cpp.s
 bytecode/bytecode_builder.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.s
 .PHONY : bytecode/bytecode_builder.cpp.s
+
+bytecode/codes.o: bytecode/codes.cpp.o
+
+.PHONY : bytecode/codes.o
+
+# target to build an object file
+bytecode/codes.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/bytecode/codes.cpp.o
+.PHONY : bytecode/codes.cpp.o
+
+bytecode/codes.i: bytecode/codes.cpp.i
+
+.PHONY : bytecode/codes.i
+
+# target to preprocess a source file
+bytecode/codes.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/bytecode/codes.cpp.i
+.PHONY : bytecode/codes.cpp.i
+
+bytecode/codes.s: bytecode/codes.cpp.s
+
+.PHONY : bytecode/codes.s
+
+# target to generate assembly for a file
+bytecode/codes.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/bytecode/codes.cpp.s
+.PHONY : bytecode/codes.cpp.s
 
 bytecode/interpreter.o: bytecode/interpreter.cpp.o
 
@@ -231,6 +690,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+resources/keywords/keywords.o: resources/keywords/keywords.cpp.o
+
+.PHONY : resources/keywords/keywords.o
+
+# target to build an object file
+resources/keywords/keywords.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.o
+.PHONY : resources/keywords/keywords.cpp.o
+
+resources/keywords/keywords.i: resources/keywords/keywords.cpp.i
+
+.PHONY : resources/keywords/keywords.i
+
+# target to preprocess a source file
+resources/keywords/keywords.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.i
+.PHONY : resources/keywords/keywords.cpp.i
+
+resources/keywords/keywords.s: resources/keywords/keywords.cpp.s
+
+.PHONY : resources/keywords/keywords.s
+
+# target to generate assembly for a file
+resources/keywords/keywords.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.s
+.PHONY : resources/keywords/keywords.cpp.s
+
 string_utility.o: string_utility.cpp.o
 
 .PHONY : string_utility.o
@@ -258,6 +744,33 @@ string_utility.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/string_utility.cpp.s
 .PHONY : string_utility.cpp.s
 
+utility/single_pointer.o: utility/single_pointer.cpp.o
+
+.PHONY : utility/single_pointer.o
+
+# target to build an object file
+utility/single_pointer.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/utility/single_pointer.cpp.o
+.PHONY : utility/single_pointer.cpp.o
+
+utility/single_pointer.i: utility/single_pointer.cpp.i
+
+.PHONY : utility/single_pointer.i
+
+# target to preprocess a source file
+utility/single_pointer.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/utility/single_pointer.cpp.i
+.PHONY : utility/single_pointer.cpp.i
+
+utility/single_pointer.s: utility/single_pointer.cpp.s
+
+.PHONY : utility/single_pointer.s
+
+# target to generate assembly for a file
+utility/single_pointer.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/utility/single_pointer.cpp.s
+.PHONY : utility/single_pointer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,9 +780,60 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... batya_script"
+	@echo "... ast/assignment.o"
+	@echo "... ast/assignment.i"
+	@echo "... ast/assignment.s"
+	@echo "... ast/binary_operator.o"
+	@echo "... ast/binary_operator.i"
+	@echo "... ast/binary_operator.s"
+	@echo "... ast/conditional.o"
+	@echo "... ast/conditional.i"
+	@echo "... ast/conditional.s"
+	@echo "... ast/declarations/declaration.o"
+	@echo "... ast/declarations/declaration.i"
+	@echo "... ast/declarations/declaration.s"
+	@echo "... ast/declarations/variable_declaration.o"
+	@echo "... ast/declarations/variable_declaration.i"
+	@echo "... ast/declarations/variable_declaration.s"
+	@echo "... ast/expression.o"
+	@echo "... ast/expression.i"
+	@echo "... ast/expression.s"
+	@echo "... ast/expression_block.o"
+	@echo "... ast/expression_block.i"
+	@echo "... ast/expression_block.s"
+	@echo "... ast/literals/boolean_literal.o"
+	@echo "... ast/literals/boolean_literal.i"
+	@echo "... ast/literals/boolean_literal.s"
+	@echo "... ast/literals/integer_literal.o"
+	@echo "... ast/literals/integer_literal.i"
+	@echo "... ast/literals/integer_literal.s"
+	@echo "... ast/literals/literal.o"
+	@echo "... ast/literals/literal.i"
+	@echo "... ast/literals/literal.s"
+	@echo "... ast/parser/parser.o"
+	@echo "... ast/parser/parser.i"
+	@echo "... ast/parser/parser.s"
+	@echo "... ast/parser/token.o"
+	@echo "... ast/parser/token.i"
+	@echo "... ast/parser/token.s"
+	@echo "... ast/typing/built_in_types_container.o"
+	@echo "... ast/typing/built_in_types_container.i"
+	@echo "... ast/typing/built_in_types_container.s"
+	@echo "... ast/typing/common_type.o"
+	@echo "... ast/typing/common_type.i"
+	@echo "... ast/typing/common_type.s"
+	@echo "... ast/typing/type.o"
+	@echo "... ast/typing/type.i"
+	@echo "... ast/typing/type.s"
+	@echo "... ast/while.o"
+	@echo "... ast/while.i"
+	@echo "... ast/while.s"
 	@echo "... bytecode/bytecode_builder.o"
 	@echo "... bytecode/bytecode_builder.i"
 	@echo "... bytecode/bytecode_builder.s"
+	@echo "... bytecode/codes.o"
+	@echo "... bytecode/codes.i"
+	@echo "... bytecode/codes.s"
 	@echo "... bytecode/interpreter.o"
 	@echo "... bytecode/interpreter.i"
 	@echo "... bytecode/interpreter.s"
@@ -279,9 +843,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... resources/keywords/keywords.o"
+	@echo "... resources/keywords/keywords.i"
+	@echo "... resources/keywords/keywords.s"
 	@echo "... string_utility.o"
 	@echo "... string_utility.i"
 	@echo "... string_utility.s"
+	@echo "... utility/single_pointer.o"
+	@echo "... utility/single_pointer.i"
+	@echo "... utility/single_pointer.s"
 .PHONY : help
 
 

@@ -1,4 +1,5 @@
 stack_allocate (size_t n_bytes)
+stack_free (size_t n_bytes)
 heap_allocate (size_t n_bytes, size_t out_address)
 heap_free (size_t address)
 
@@ -106,4 +107,4 @@ modulus_unsigned_integer_64 (size_t destination_address, size_t source_address)
 modulus_float_32 (size_t destination_address, size_t source_address)
 modulus_float_64 (size_t destination_address, size_t source_address)
 
-signal (size_t msg)
+signal (const char* msg)

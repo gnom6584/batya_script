@@ -23,10 +23,26 @@ Bytecode BytecodeBuilder::build() noexcept(true) {
 }
 
 
+void BytecodeBuilder::append(const Bytecode& other_bytecode) noexcept(true) {
+_bytecode.insert(std::end(_bytecode), std::begin(other_bytecode), std::end(other_bytecode));
+_position += std::size(other_bytecode);
+}
+
+
 void BytecodeBuilder::stack_allocate(size_t n_bytes) noexcept(true) {
     ++_position;
     _bytecode.emplace_back(codes::stack_allocate);
     for(size_t i = 0; i < codes::size_of[codes::stack_allocate]; ++i)
+        _bytecode.emplace_back();
+    memcpy(_bytecode.data() + _position, &n_bytes, sizeof(size_t));
+   _position += sizeof(size_t);
+}
+
+
+void BytecodeBuilder::stack_free(size_t n_bytes) noexcept(true) {
+    ++_position;
+    _bytecode.emplace_back(codes::stack_free);
+    for(size_t i = 0; i < codes::size_of[codes::stack_free]; ++i)
         _bytecode.emplace_back();
     memcpy(_bytecode.data() + _position, &n_bytes, sizeof(size_t));
    _position += sizeof(size_t);
@@ -1133,11 +1149,11 @@ void BytecodeBuilder::modulus_float_64(size_t destination_address, size_t source
 }
 
 
-void BytecodeBuilder::signal(size_t msg) noexcept(true) {
+void BytecodeBuilder::signal(const char* msg) noexcept(true) {
     ++_position;
     _bytecode.emplace_back(codes::signal);
     for(size_t i = 0; i < codes::size_of[codes::signal]; ++i)
         _bytecode.emplace_back();
-    memcpy(_bytecode.data() + _position, &msg, sizeof(size_t));
-   _position += sizeof(size_t);
+    memcpy(_bytecode.data() + _position, &msg, sizeof(const char*));
+   _position += sizeof(const char*);
 }

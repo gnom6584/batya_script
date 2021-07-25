@@ -99,7 +99,7 @@ case codes::equal_ ## n: { \
 auto dst = stack_ptr + extract<size_t>(&ptr); \
 auto src = stack_ptr + extract<size_t>(&ptr); \
 auto out = stack_ptr + extract<size_t>(&ptr); \
-*(bool*)out = memcmp((void*)dst, (void*) src, b); \
+*(bool*)out = memcmp((void*)dst, (void*) src, b) == 0; \
 break; \
 } \
 
@@ -120,6 +120,10 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexc
 				stack.allocate(extract<size_t>(&ptr));
 				break;
 			}
+			case codes::stack_free: {
+				stack.free(extract<size_t>(&ptr));
+				break;
+			};
 			case codes::heap_allocate: {
 				auto bytes = extract<size_t>(&ptr);
 				auto allocated_ptr = (size_t)malloc(bytes);
@@ -165,7 +169,7 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexc
 				auto src = stack_ptr + extract<size_t>(&ptr);
 				auto out = stack_ptr + extract<size_t>(&ptr);
 				auto bytes = extract<size_t>(&ptr);
-				*(bool*)out = memcmp((void*)dst, (void*) src, bytes);
+				*(bool*)out = memcmp((void*)dst, (void*) src, bytes) == 0;
 				break;
 			}
 
@@ -184,8 +188,8 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexc
 			}
 
 			case codes::signal: {
-				auto str = extract<size_t>(&ptr);
-				printf("%s", (const char*)str);
+				auto str = extract<const char*>(&ptr);
+				printf("%s", str);
 				break;
 			}
 

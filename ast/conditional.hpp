@@ -1,0 +1,40 @@
+//
+// Created by Name on 24.07.2021.
+//
+
+#ifndef BATYA_SCRIPT_AST_CONDITIONAL_HPP_
+#define BATYA_SCRIPT_AST_CONDITIONAL_HPP_
+
+#include "expression.hpp"
+
+#include <optional>
+#include "../utility/single_pointer.hpp"
+
+namespace batya_script::ast {
+
+class Conditional : public Expression {
+public:
+	explicit Conditional(batya_script::utility::SinglePointer<Expression> bool_expression, batya_script::utility::SinglePointer<Expression> on_true, std::optional<batya_script::utility::SinglePointer<Expression>> on_false = {}) noexcept(false);
+
+	[[nodiscard]] const Expression& bool_expression() const noexcept(true);
+
+	[[nodiscard]] const Expression& on_true_expression() const noexcept(true);
+
+	[[nodiscard]] const Expression& on_false_expression() const noexcept(false);
+
+	[[nodiscard]] bool has_expression() const noexcept(true);
+
+private:
+
+	const batya_script::utility::SinglePointer<Expression> _bool_expression;
+
+	const batya_script::utility::SinglePointer<Expression> _on_true_expression;
+
+	const std::optional<batya_script::utility::SinglePointer<Expression>> _on_false_expression;
+
+
+};
+
+}
+
+#endif //BATYA_SCRIPT_AST_CONDITIONAL_HPP_

@@ -1,0 +1,6 @@
+var a = 20 + 4;
+
+if var c = false:
+    c = true
+    var c = 24
+    var z : i4 = 15

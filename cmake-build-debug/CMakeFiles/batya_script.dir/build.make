@@ -70,9 +70,22 @@ CMakeFiles/batya_script.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/main.cpp -o CMakeFiles/batya_script.dir/main.cpp.s
 
+CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.o: ../resources/keywords/keywords.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.cpp
+
+CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.cpp > CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.i
+
+CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.cpp -o CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.s
+
 CMakeFiles/batya_script.dir/string_utility.cpp.o: CMakeFiles/batya_script.dir/flags.make
 CMakeFiles/batya_script.dir/string_utility.cpp.o: ../string_utility.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/batya_script.dir/string_utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/batya_script.dir/string_utility.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/string_utility.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/string_utility.cpp
 
 CMakeFiles/batya_script.dir/string_utility.cpp.i: cmake_force
@@ -85,7 +98,7 @@ CMakeFiles/batya_script.dir/string_utility.cpp.s: cmake_force
 
 CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o: CMakeFiles/batya_script.dir/flags.make
 CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o: ../bytecode/bytecode_builder.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.cpp
 
 CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.i: cmake_force
@@ -96,9 +109,22 @@ CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.cpp -o CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.s
 
+CMakeFiles/batya_script.dir/bytecode/codes.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/bytecode/codes.cpp.o: ../bytecode/codes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/batya_script.dir/bytecode/codes.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/bytecode/codes.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.cpp
+
+CMakeFiles/batya_script.dir/bytecode/codes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/bytecode/codes.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.cpp > CMakeFiles/batya_script.dir/bytecode/codes.cpp.i
+
+CMakeFiles/batya_script.dir/bytecode/codes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/bytecode/codes.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.cpp -o CMakeFiles/batya_script.dir/bytecode/codes.cpp.s
+
 CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o: CMakeFiles/batya_script.dir/flags.make
 CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o: ../bytecode/interpreter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/interpreter.cpp
 
 CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.i: cmake_force
@@ -111,7 +137,7 @@ CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.s: cmake_force
 
 CMakeFiles/batya_script.dir/bytecode/stack.cpp.o: CMakeFiles/batya_script.dir/flags.make
 CMakeFiles/batya_script.dir/bytecode/stack.cpp.o: ../bytecode/stack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/batya_script.dir/bytecode/stack.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/batya_script.dir/bytecode/stack.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/bytecode/stack.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.cpp
 
 CMakeFiles/batya_script.dir/bytecode/stack.cpp.i: cmake_force
@@ -122,25 +148,284 @@ CMakeFiles/batya_script.dir/bytecode/stack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/bytecode/stack.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.cpp -o CMakeFiles/batya_script.dir/bytecode/stack.cpp.s
 
+CMakeFiles/batya_script.dir/ast/typing/type.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/typing/type.cpp.o: ../ast/typing/type.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/batya_script.dir/ast/typing/type.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/typing/type.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.cpp
+
+CMakeFiles/batya_script.dir/ast/typing/type.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/typing/type.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.cpp > CMakeFiles/batya_script.dir/ast/typing/type.cpp.i
+
+CMakeFiles/batya_script.dir/ast/typing/type.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/typing/type.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.cpp -o CMakeFiles/batya_script.dir/ast/typing/type.cpp.s
+
+CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o: ../ast/typing/common_type.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.cpp
+
+CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.cpp > CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.i
+
+CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.cpp -o CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.s
+
+CMakeFiles/batya_script.dir/ast/expression.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/expression.cpp.o: ../ast/expression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/batya_script.dir/ast/expression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/expression.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.cpp
+
+CMakeFiles/batya_script.dir/ast/expression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/expression.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.cpp > CMakeFiles/batya_script.dir/ast/expression.cpp.i
+
+CMakeFiles/batya_script.dir/ast/expression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/expression.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.cpp -o CMakeFiles/batya_script.dir/ast/expression.cpp.s
+
+CMakeFiles/batya_script.dir/ast/expression_block.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/expression_block.cpp.o: ../ast/expression_block.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/batya_script.dir/ast/expression_block.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/expression_block.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.cpp
+
+CMakeFiles/batya_script.dir/ast/expression_block.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/expression_block.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.cpp > CMakeFiles/batya_script.dir/ast/expression_block.cpp.i
+
+CMakeFiles/batya_script.dir/ast/expression_block.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/expression_block.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.cpp -o CMakeFiles/batya_script.dir/ast/expression_block.cpp.s
+
+CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o: ../ast/declarations/declaration.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.cpp
+
+CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.cpp > CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.i
+
+CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.cpp -o CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.s
+
+CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o: ../ast/declarations/variable_declaration.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.cpp
+
+CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.cpp > CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.i
+
+CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.cpp -o CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.s
+
+CMakeFiles/batya_script.dir/ast/while.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/while.cpp.o: ../ast/while.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/batya_script.dir/ast/while.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/while.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.cpp
+
+CMakeFiles/batya_script.dir/ast/while.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/while.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.cpp > CMakeFiles/batya_script.dir/ast/while.cpp.i
+
+CMakeFiles/batya_script.dir/ast/while.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/while.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.cpp -o CMakeFiles/batya_script.dir/ast/while.cpp.s
+
+CMakeFiles/batya_script.dir/ast/conditional.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/conditional.cpp.o: ../ast/conditional.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/batya_script.dir/ast/conditional.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/conditional.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.cpp
+
+CMakeFiles/batya_script.dir/ast/conditional.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/conditional.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.cpp > CMakeFiles/batya_script.dir/ast/conditional.cpp.i
+
+CMakeFiles/batya_script.dir/ast/conditional.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/conditional.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.cpp -o CMakeFiles/batya_script.dir/ast/conditional.cpp.s
+
+CMakeFiles/batya_script.dir/ast/assignment.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/assignment.cpp.o: ../ast/assignment.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/batya_script.dir/ast/assignment.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/assignment.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.cpp
+
+CMakeFiles/batya_script.dir/ast/assignment.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/assignment.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.cpp > CMakeFiles/batya_script.dir/ast/assignment.cpp.i
+
+CMakeFiles/batya_script.dir/ast/assignment.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/assignment.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.cpp -o CMakeFiles/batya_script.dir/ast/assignment.cpp.s
+
+CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o: ../ast/typing/built_in_types_container.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.cpp
+
+CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.cpp > CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.i
+
+CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.cpp -o CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.s
+
+CMakeFiles/batya_script.dir/ast/binary_operator.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/binary_operator.cpp.o: ../ast/binary_operator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/batya_script.dir/ast/binary_operator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/binary_operator.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.cpp
+
+CMakeFiles/batya_script.dir/ast/binary_operator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/binary_operator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.cpp > CMakeFiles/batya_script.dir/ast/binary_operator.cpp.i
+
+CMakeFiles/batya_script.dir/ast/binary_operator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/binary_operator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.cpp -o CMakeFiles/batya_script.dir/ast/binary_operator.cpp.s
+
+CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o: ../ast/literals/literal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.cpp
+
+CMakeFiles/batya_script.dir/ast/literals/literal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/literals/literal.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.cpp > CMakeFiles/batya_script.dir/ast/literals/literal.cpp.i
+
+CMakeFiles/batya_script.dir/ast/literals/literal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/literals/literal.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.cpp -o CMakeFiles/batya_script.dir/ast/literals/literal.cpp.s
+
+CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o: ../ast/literals/integer_literal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.cpp
+
+CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.cpp > CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.i
+
+CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.cpp -o CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.s
+
+CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o: ../ast/literals/boolean_literal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.cpp
+
+CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.cpp > CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.i
+
+CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.cpp -o CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.s
+
+CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o: ../ast/parser/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.cpp
+
+CMakeFiles/batya_script.dir/ast/parser/parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/parser/parser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.cpp > CMakeFiles/batya_script.dir/ast/parser/parser.cpp.i
+
+CMakeFiles/batya_script.dir/ast/parser/parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/parser/parser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.cpp -o CMakeFiles/batya_script.dir/ast/parser/parser.cpp.s
+
+CMakeFiles/batya_script.dir/ast/parser/token.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/ast/parser/token.cpp.o: ../ast/parser/token.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/batya_script.dir/ast/parser/token.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/ast/parser/token.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.cpp
+
+CMakeFiles/batya_script.dir/ast/parser/token.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/ast/parser/token.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.cpp > CMakeFiles/batya_script.dir/ast/parser/token.cpp.i
+
+CMakeFiles/batya_script.dir/ast/parser/token.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/ast/parser/token.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.cpp -o CMakeFiles/batya_script.dir/ast/parser/token.cpp.s
+
+CMakeFiles/batya_script.dir/utility/single_pointer.cpp.o: CMakeFiles/batya_script.dir/flags.make
+CMakeFiles/batya_script.dir/utility/single_pointer.cpp.o: ../utility/single_pointer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/batya_script.dir/utility/single_pointer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/batya_script.dir/utility/single_pointer.cpp.o -c /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.cpp
+
+CMakeFiles/batya_script.dir/utility/single_pointer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/batya_script.dir/utility/single_pointer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.cpp > CMakeFiles/batya_script.dir/utility/single_pointer.cpp.i
+
+CMakeFiles/batya_script.dir/utility/single_pointer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/batya_script.dir/utility/single_pointer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.cpp -o CMakeFiles/batya_script.dir/utility/single_pointer.cpp.s
+
 # Object files for target batya_script
 batya_script_OBJECTS = \
 "CMakeFiles/batya_script.dir/main.cpp.o" \
+"CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.o" \
 "CMakeFiles/batya_script.dir/string_utility.cpp.o" \
 "CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o" \
+"CMakeFiles/batya_script.dir/bytecode/codes.cpp.o" \
 "CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o" \
-"CMakeFiles/batya_script.dir/bytecode/stack.cpp.o"
+"CMakeFiles/batya_script.dir/bytecode/stack.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/typing/type.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/expression.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/expression_block.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/while.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/conditional.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/assignment.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/binary_operator.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o" \
+"CMakeFiles/batya_script.dir/ast/parser/token.cpp.o" \
+"CMakeFiles/batya_script.dir/utility/single_pointer.cpp.o"
 
 # External object files for target batya_script
 batya_script_EXTERNAL_OBJECTS =
 
 batya_script: CMakeFiles/batya_script.dir/main.cpp.o
+batya_script: CMakeFiles/batya_script.dir/resources/keywords/keywords.cpp.o
 batya_script: CMakeFiles/batya_script.dir/string_utility.cpp.o
 batya_script: CMakeFiles/batya_script.dir/bytecode/bytecode_builder.cpp.o
+batya_script: CMakeFiles/batya_script.dir/bytecode/codes.cpp.o
 batya_script: CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o
 batya_script: CMakeFiles/batya_script.dir/bytecode/stack.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/typing/type.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/expression.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/expression_block.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/while.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/conditional.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/assignment.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/binary_operator.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o
+batya_script: CMakeFiles/batya_script.dir/ast/parser/token.cpp.o
+batya_script: CMakeFiles/batya_script.dir/utility/single_pointer.cpp.o
 batya_script: CMakeFiles/batya_script.dir/build.make
 batya_script: CMakeFiles/batya_script.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable batya_script"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Name/CLionProjects/batya_script/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable batya_script"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/batya_script.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -84,10 +84,109 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/while.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/while.hpp">
+			<Option target="batya_script"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.cpp">
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.cpp">
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.hpp">
@@ -108,10 +207,25 @@
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/main.cpp">
 			<Option target="batya_script"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.hpp">
+			<Option target="batya_script"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/string_utility.cpp">
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/string_utility.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp">
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/CMakeLists.txt">

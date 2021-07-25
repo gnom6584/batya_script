@@ -21,7 +21,7 @@ public:
 
 	[[nodiscard]] size_t size() const noexcept(true);
 
-	[[nodiscard]] void* allocate(size_t bytes) noexcept(false);
+	void* allocate(size_t bytes) noexcept(false);
 
 	[[nodiscard]] size_t header() const noexcept(true);
 

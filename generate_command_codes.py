@@ -3,7 +3,7 @@ import getpass
 from datetime import date
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
-commands_path = os.path.join(script_dir, 'commands')
+commands_path = os.path.join(script_dir, 'bytecode_commands')
 
 lines = []
 with open(commands_path) as file:
@@ -78,9 +78,36 @@ for command in commands:
 
 command_codes += '\n};\n\n'
 
-command_codes += '}'
+command_codes += '[[nodiscard]] std::string dump_command(const unsigned char* ptr) noexcept(false);\n'
 
-create_header_file('bytecode/codes', command_codes)
+command_codes += '}'
+cpp_command_codes = '#include <string>\n'
+cpp_command_codes += '#include <sstream>\n'
+cpp_command_codes += '#include <stdexcept>\n'
+cpp_command_codes += '#include <utility>\n\n'
+cpp_command_codes += 'using namespace batya_script::bytecode;\n\n'
+cpp_command_codes += 'std::string codes::dump_command(const unsigned char* ptr)  noexcept(false) {\n'
+cpp_command_codes += 'switch(*ptr) {\n'
+for command in commands:
+    cpp_command_codes += f'    case codes::{command.name}: {{\n'
+    cpp_command_codes += '        std::stringstream ss;\n'
+    cpp_command_codes += f'        ss << "{command.name}: ";\n'
+    cpp_command_codes += '        size_t offset = 1;\n'
+    for arg in command.args:
+        cpp_command_codes += f'        ss << *({arg[0]}*)(ptr + offset);\n'
+        if arg != command.args[-1]:
+            cpp_command_codes += f'        ss << ", ";\n'
+        cpp_command_codes += f'        offset += sizeof({arg[0]});\n'
+
+    cpp_command_codes += '        return std::move(ss.str());\n'
+    cpp_command_codes += '    }\n'
+
+cpp_command_codes += '    default: {\n'
+cpp_command_codes += '        throw std::runtime_error("Invalid command code:" + std::to_string((int)*ptr));\n'
+cpp_command_codes += '    }\n'
+cpp_command_codes += '}\n'
+cpp_command_codes += '}'
+create_header_and_cpp_file(os.path.join("bytecode", 'codes'), command_codes, cpp_command_codes)
 
 # bytecode/bytecode_builder generation
 
@@ -95,6 +122,7 @@ builder_hpp += 'public:\n\n'
 builder_hpp += '    BytecodeBuilder() noexcept(true);\n\n'
 builder_hpp += '    [[nodiscard]] size_t position() const noexcept(true);\n\n'
 builder_hpp += '    [[nodiscard]] Bytecode build() noexcept(true);\n\n'
+builder_hpp += '    void append(const Bytecode& other_bytecode) noexcept(true);\n\n'
 
 builder_cpp += 'BytecodeBuilder::BytecodeBuilder() noexcept(true)\n    : _bytecode({}), _position(0) {}\n\n\n'
 
@@ -109,9 +137,14 @@ builder_cpp += '    _position = 0;\n'
 builder_cpp += '    return result;\n'
 builder_cpp += '\n}\n\n\n'
 
+builder_cpp += 'void BytecodeBuilder::append(const Bytecode& other_bytecode) noexcept(true) {\n'
+builder_cpp += '_bytecode.insert(std::end(_bytecode), std::begin(other_bytecode), std::end(other_bytecode));\n'
+builder_cpp += '_position += std::size(other_bytecode);'
+builder_cpp += '\n}\n\n\n'
+
 for command in commands:
     args_signature = '(' + ', '.join([x[0] + ' ' + x[1] for x in command.args]) + ')'
-    builder_hpp += '    void ' + command.name + args_signature + 'noexcept(true); \n\n'
+    builder_hpp += '    void ' + command.name + args_signature + ' noexcept(true); \n\n'
     builder_cpp += f'void BytecodeBuilder::{command.name}{args_signature} noexcept(true) {{\n'
     builder_cpp += '    ++_position;\n'
     builder_cpp += f'    _bytecode.emplace_back(codes::{command.name});\n'
@@ -128,4 +161,5 @@ builder_hpp += '    size_t _position;\n\n'
 builder_hpp += '};\n\n'
 builder_hpp += '}'
 builder_cpp = builder_cpp[:-3]
-create_header_and_cpp_file('bytecode/bytecode_builder', builder_hpp, builder_cpp)
+
+create_header_and_cpp_file(os.path.join("bytecode", 'bytecode_builder'), builder_hpp, builder_cpp)

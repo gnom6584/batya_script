@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <keyword key = "var" value = "пер"/>
+    <keyword key = "val" value = "пос"/>
+    <keyword key = "while" value = "пока"/>
+    <keyword key = "do" value = "делать"/>
+    <keyword key = "if" value = "если"/>
+    <keyword key = "else" value = "иначе"/>
+    <keyword key = "is" value = "есть"/>
+</resources>
