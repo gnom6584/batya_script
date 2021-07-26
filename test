@@ -1,6 +1,8 @@
-var a = 20 + 4;
+var a = 10
 
-if var c = false:
-    c = true
-    var c = 24
-    var z : i4 = 15
+var b = a
+
+while b > 1 {
+    b = b - 1
+    a = a * b
+}

@@ -4,14 +4,15 @@
 
 #include "assignment.hpp"
 
+#include <stdexcept>
+
 using namespace batya_script::ast;
 using namespace declarations;
 
 Assignment::Assignment(const declarations::VariableDeclaration& declaration, batya_script::utility::SinglePointer<Expression> assignment_expression) noexcept(false)
 	: Expression(declaration.result_type()), _declaration(declaration), _assignment_expression(std::move(assignment_expression)) {
-	if(declaration.result_type() != assignment_expression->result_type()) {
-
-	}
+	if(_declaration.result_type() != _assignment_expression->result_type())
+		throw std::runtime_error("Invalid types for assigment");
 
 }
 

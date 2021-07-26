@@ -177,32 +177,59 @@ ast/binary_operator.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/binary_operator.cpp.s
 .PHONY : ast/binary_operator.cpp.s
 
-ast/conditional.o: ast/conditional.cpp.o
+ast/condition.o: ast/condition.cpp.o
 
-.PHONY : ast/conditional.o
+.PHONY : ast/condition.o
 
 # target to build an object file
-ast/conditional.cpp.o:
-	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/conditional.cpp.o
-.PHONY : ast/conditional.cpp.o
+ast/condition.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/condition.cpp.o
+.PHONY : ast/condition.cpp.o
 
-ast/conditional.i: ast/conditional.cpp.i
+ast/condition.i: ast/condition.cpp.i
 
-.PHONY : ast/conditional.i
+.PHONY : ast/condition.i
 
 # target to preprocess a source file
-ast/conditional.cpp.i:
-	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/conditional.cpp.i
-.PHONY : ast/conditional.cpp.i
+ast/condition.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/condition.cpp.i
+.PHONY : ast/condition.cpp.i
 
-ast/conditional.s: ast/conditional.cpp.s
+ast/condition.s: ast/condition.cpp.s
 
-.PHONY : ast/conditional.s
+.PHONY : ast/condition.s
 
 # target to generate assembly for a file
-ast/conditional.cpp.s:
-	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/conditional.cpp.s
-.PHONY : ast/conditional.cpp.s
+ast/condition.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/condition.cpp.s
+.PHONY : ast/condition.cpp.s
+
+ast/declaration_reference.o: ast/declaration_reference.cpp.o
+
+.PHONY : ast/declaration_reference.o
+
+# target to build an object file
+ast/declaration_reference.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declaration_reference.cpp.o
+.PHONY : ast/declaration_reference.cpp.o
+
+ast/declaration_reference.i: ast/declaration_reference.cpp.i
+
+.PHONY : ast/declaration_reference.i
+
+# target to preprocess a source file
+ast/declaration_reference.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declaration_reference.cpp.i
+.PHONY : ast/declaration_reference.cpp.i
+
+ast/declaration_reference.s: ast/declaration_reference.cpp.s
+
+.PHONY : ast/declaration_reference.s
+
+# target to generate assembly for a file
+ast/declaration_reference.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declaration_reference.cpp.s
+.PHONY : ast/declaration_reference.cpp.s
 
 ast/declarations/declaration.o: ast/declarations/declaration.cpp.o
 
@@ -393,6 +420,33 @@ ast/literals/literal.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/literal.cpp.s
 .PHONY : ast/literals/literal.cpp.s
 
+ast/operators_chain.o: ast/operators_chain.cpp.o
+
+.PHONY : ast/operators_chain.o
+
+# target to build an object file
+ast/operators_chain.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/operators_chain.cpp.o
+.PHONY : ast/operators_chain.cpp.o
+
+ast/operators_chain.i: ast/operators_chain.cpp.i
+
+.PHONY : ast/operators_chain.i
+
+# target to preprocess a source file
+ast/operators_chain.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/operators_chain.cpp.i
+.PHONY : ast/operators_chain.cpp.i
+
+ast/operators_chain.s: ast/operators_chain.cpp.s
+
+.PHONY : ast/operators_chain.s
+
+# target to generate assembly for a file
+ast/operators_chain.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/operators_chain.cpp.s
+.PHONY : ast/operators_chain.cpp.s
+
 ast/parser/parser.o: ast/parser/parser.cpp.o
 
 .PHONY : ast/parser/parser.o
@@ -446,6 +500,33 @@ ast/parser/token.s: ast/parser/token.cpp.s
 ast/parser/token.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/parser/token.cpp.s
 .PHONY : ast/parser/token.cpp.s
+
+ast/typing/binary_operator.o: ast/typing/binary_operator.cpp.o
+
+.PHONY : ast/typing/binary_operator.o
+
+# target to build an object file
+ast/typing/binary_operator.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/binary_operator.cpp.o
+.PHONY : ast/typing/binary_operator.cpp.o
+
+ast/typing/binary_operator.i: ast/typing/binary_operator.cpp.i
+
+.PHONY : ast/typing/binary_operator.i
+
+# target to preprocess a source file
+ast/typing/binary_operator.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/binary_operator.cpp.i
+.PHONY : ast/typing/binary_operator.cpp.i
+
+ast/typing/binary_operator.s: ast/typing/binary_operator.cpp.s
+
+.PHONY : ast/typing/binary_operator.s
+
+# target to generate assembly for a file
+ast/typing/binary_operator.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/binary_operator.cpp.s
+.PHONY : ast/typing/binary_operator.cpp.s
 
 ast/typing/built_in_types_container.o: ast/typing/built_in_types_container.cpp.o
 
@@ -690,6 +771,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+resources/keywords/keys.o: resources/keywords/keys.cpp.o
+
+.PHONY : resources/keywords/keys.o
+
+# target to build an object file
+resources/keywords/keys.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/resources/keywords/keys.cpp.o
+.PHONY : resources/keywords/keys.cpp.o
+
+resources/keywords/keys.i: resources/keywords/keys.cpp.i
+
+.PHONY : resources/keywords/keys.i
+
+# target to preprocess a source file
+resources/keywords/keys.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/resources/keywords/keys.cpp.i
+.PHONY : resources/keywords/keys.cpp.i
+
+resources/keywords/keys.s: resources/keywords/keys.cpp.s
+
+.PHONY : resources/keywords/keys.s
+
+# target to generate assembly for a file
+resources/keywords/keys.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/resources/keywords/keys.cpp.s
+.PHONY : resources/keywords/keys.cpp.s
+
 resources/keywords/keywords.o: resources/keywords/keywords.cpp.o
 
 .PHONY : resources/keywords/keywords.o
@@ -744,6 +852,33 @@ string_utility.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/string_utility.cpp.s
 .PHONY : string_utility.cpp.s
 
+utility/indexed_container.o: utility/indexed_container.cpp.o
+
+.PHONY : utility/indexed_container.o
+
+# target to build an object file
+utility/indexed_container.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/utility/indexed_container.cpp.o
+.PHONY : utility/indexed_container.cpp.o
+
+utility/indexed_container.i: utility/indexed_container.cpp.i
+
+.PHONY : utility/indexed_container.i
+
+# target to preprocess a source file
+utility/indexed_container.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/utility/indexed_container.cpp.i
+.PHONY : utility/indexed_container.cpp.i
+
+utility/indexed_container.s: utility/indexed_container.cpp.s
+
+.PHONY : utility/indexed_container.s
+
+# target to generate assembly for a file
+utility/indexed_container.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/utility/indexed_container.cpp.s
+.PHONY : utility/indexed_container.cpp.s
+
 utility/single_pointer.o: utility/single_pointer.cpp.o
 
 .PHONY : utility/single_pointer.o
@@ -786,9 +921,12 @@ help:
 	@echo "... ast/binary_operator.o"
 	@echo "... ast/binary_operator.i"
 	@echo "... ast/binary_operator.s"
-	@echo "... ast/conditional.o"
-	@echo "... ast/conditional.i"
-	@echo "... ast/conditional.s"
+	@echo "... ast/condition.o"
+	@echo "... ast/condition.i"
+	@echo "... ast/condition.s"
+	@echo "... ast/declaration_reference.o"
+	@echo "... ast/declaration_reference.i"
+	@echo "... ast/declaration_reference.s"
 	@echo "... ast/declarations/declaration.o"
 	@echo "... ast/declarations/declaration.i"
 	@echo "... ast/declarations/declaration.s"
@@ -810,12 +948,18 @@ help:
 	@echo "... ast/literals/literal.o"
 	@echo "... ast/literals/literal.i"
 	@echo "... ast/literals/literal.s"
+	@echo "... ast/operators_chain.o"
+	@echo "... ast/operators_chain.i"
+	@echo "... ast/operators_chain.s"
 	@echo "... ast/parser/parser.o"
 	@echo "... ast/parser/parser.i"
 	@echo "... ast/parser/parser.s"
 	@echo "... ast/parser/token.o"
 	@echo "... ast/parser/token.i"
 	@echo "... ast/parser/token.s"
+	@echo "... ast/typing/binary_operator.o"
+	@echo "... ast/typing/binary_operator.i"
+	@echo "... ast/typing/binary_operator.s"
 	@echo "... ast/typing/built_in_types_container.o"
 	@echo "... ast/typing/built_in_types_container.i"
 	@echo "... ast/typing/built_in_types_container.s"
@@ -843,12 +987,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... resources/keywords/keys.o"
+	@echo "... resources/keywords/keys.i"
+	@echo "... resources/keywords/keys.s"
 	@echo "... resources/keywords/keywords.o"
 	@echo "... resources/keywords/keywords.i"
 	@echo "... resources/keywords/keywords.s"
 	@echo "... string_utility.o"
 	@echo "... string_utility.i"
 	@echo "... string_utility.s"
+	@echo "... utility/indexed_container.o"
+	@echo "... utility/indexed_container.i"
+	@echo "... utility/indexed_container.s"
 	@echo "... utility/single_pointer.o"
 	@echo "... utility/single_pointer.i"
 	@echo "... utility/single_pointer.s"

@@ -8,7 +8,7 @@
 
 using namespace batya_script::ast::typing;
 
-CommonType::CommonType(std::string name) noexcept(true) : _name(std::move(name)) {}
+CommonType::CommonType(std::string name, std::vector<BinaryOperator> binary_operators) noexcept(true) : _name(std::move(name)), _binary_operators(std::move(binary_operators)) {}
 
 
 std::string_view CommonType::name() const noexcept(true) {

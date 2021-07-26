@@ -22,3 +22,13 @@ const string& Token::string() const noexcept(true) {
 size_t Token::position() const noexcept(true) {
 	return _position;
 }
+
+
+Token::operator std::string&() noexcept(true) {
+	return _string;
+}
+
+
+Token::operator const std::string&() const noexcept(true){
+	return _string;
+}

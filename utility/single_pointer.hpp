@@ -13,8 +13,11 @@ template <class T>
 class SinglePointer final {
 public:
 
-	template <typename TDerived, typename ...Args>
+	template <typename ...Args>
 	inline constexpr static SinglePointer<T> make(Args&&... args) noexcept(false);
+
+	template <typename TDerived, typename ...Args>
+	inline constexpr static SinglePointer<T> make_derived(Args&&... args) noexcept(false);
 
 	inline constexpr SinglePointer(const SinglePointer& pointer) = delete;
 
@@ -106,9 +109,16 @@ constexpr bool SinglePointer<T>::is_valid() const noexcept(true) {
 
 
 template <class T>
+template <typename... Args>
+constexpr SinglePointer<T> SinglePointer<T>::make(Args&& ... args) noexcept(false) {
+	return SinglePointer<T>(new T(std::forward<Args>(args)...));
+}
+
+
+template <class T>
 template <typename TDerived, typename... Args>
-constexpr SinglePointer<T> SinglePointer<T>::make(Args&&... args) noexcept(false) {
-	return SinglePointer<T>(new TDerived(std::forward<Args>(args...)...));;
+constexpr SinglePointer<T> SinglePointer<T>::make_derived(Args&&... args) noexcept(false) {
+	return SinglePointer<T>(new TDerived(std::forward<Args>(args)...));
 }
 
 }

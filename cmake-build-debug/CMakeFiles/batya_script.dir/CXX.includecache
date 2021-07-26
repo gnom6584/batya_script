@@ -6,21 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.cpp
-assignment.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.hpp
-
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.hpp
 expression.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
 declarations/variable_declaration.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
-
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.cpp
-binary_operator.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.hpp
-utility
--
 
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.hpp
 string
@@ -30,15 +20,7 @@ string
 expression.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
 
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.cpp
-conditional.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.hpp
-typing/built_in_types_container.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
-stdexcept
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/stdexcept
-
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/conditional.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/condition.hpp
 expression.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
 optional
@@ -46,15 +28,15 @@ optional
 ../utility/single_pointer.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/declaration_reference.hpp
+expression.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+declarations/variable_declaration.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
+
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp
 ../expression.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
-
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.cpp
-variable_declaration.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
-stdexcept
--
 
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
 optional
@@ -68,22 +50,36 @@ declaration.hpp
 typing/type.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
 
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.cpp
-expression_block.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.hpp
-
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.hpp
 ../utility/single_pointer.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
+../utility/indexed_container.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/utility/indexed_container.hpp
 vector
 -
 expression.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.hpp
+literal.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
+
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.hpp
+literal.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
+
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
+../expression.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
 
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.cpp
 vector
 -
 iostream
+-
+vector
+-
+map
 -
 parser.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.hpp
@@ -95,6 +91,22 @@ token.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
 ../../resources/keywords/keywords.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.hpp
+../declarations/variable_declaration.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
+../binary_operator.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.hpp
+../literals/integer_literal.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.hpp
+../literals/boolean_literal.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.hpp
+../condition.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/condition.hpp
+../while.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/while.hpp
+../declaration_reference.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/declaration_reference.hpp
+../assignment.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.hpp
 
 /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.hpp
 ../../utility/single_pointer.hpp
@@ -120,57 +132,15 @@ type.hpp
 string
 -
 
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.hpp
-vector
--
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/while.hpp
+expression.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+../utility/single_pointer.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp
 array
 -
-
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/interpreter.hpp
-vector
--
-stack.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.hpp
-
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.hpp
-vector
--
-
-/mnt/c/Users/Name/CLionProjects/batya_script/main.cpp
-iostream
--
-cstring
--
-stack
--
-map
--
-bytecode/bytecode_builder.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.hpp
-bytecode/interpreter.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/interpreter.hpp
-bytecode/codes.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.hpp
-string_utility.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/string_utility.hpp
-list
--
-utility
--
-sstream
--
-resources/keywords/keywords.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.hpp
-resources/keywords/keys.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp
-ast/parser/parser.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.hpp
-fstream
--
-
-/mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp
 
 /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.hpp
 array
@@ -178,17 +148,9 @@ array
 keys.hpp
 /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp
 
-/mnt/c/Users/Name/CLionProjects/batya_script/string_utility.hpp
+/mnt/c/Users/Name/CLionProjects/batya_script/utility/indexed_container.hpp
 vector
 -
-set
--
-string
--
-
-/mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.cpp
-single_pointer.hpp
-/mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 
 /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 utility

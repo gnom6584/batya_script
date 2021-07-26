@@ -38,6 +38,7 @@ for f in os.listdir(keywords_dir):
 
 keys = [x[0] for x in key_words['keywords_eng.xml']]
 
+
 keys_hpp = 'namespace batya_script::resources::keywords {\n\n'
 keys_hpp += 'enum class Key {\n'
 for key in keys:
@@ -45,8 +46,22 @@ for key in keys:
     if key != keys[-1]:
         keys_hpp += ',\n'
 keys_hpp += '\n};\n'
+
+keys_hpp += '\n[[nodiscard]] constexpr const char* get_key_spelling(Key key) noexcept(true);\n'
+
+keys_hpp += '\n#include <array>\n\n'
+
+keys_hpp += f'static constexpr std::array<const char*, {len(keys)}> spelling = {{'
+for key in keys:
+    keys_hpp += '    ' + f'"{key}"'
+    if key != keys[-1]:
+        keys_hpp += ',\n'
+keys_hpp += '\n};\n\n'
+keys_hpp += 'constexpr const char* get_key_spelling(Key key) noexcept(true) {\n'
+keys_hpp += '   return spelling[(int)key];\n'
+keys_hpp += '}\n'
 keys_hpp += '\n}'
-create_header_file(os.path.join(os.path.join('resources', 'keywords'), 'keys'), keys_hpp)
+create_header_and_cpp_file(os.path.join(os.path.join('resources', 'keywords'), 'keys'), keys_hpp, '')
 hpp = '#include <array>\n\n'
 hpp += '#include "keys.hpp"\n'
 hpp += 'namespace batya_script::resources::keywords {\n\n'

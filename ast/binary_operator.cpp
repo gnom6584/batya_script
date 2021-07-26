@@ -15,6 +15,8 @@ using namespace utility;
 BinaryOperator::BinaryOperator(const typing::Type& result_type, std::string sign, SinglePointer<Expression> left_operand, SinglePointer<Expression> right_operand) noexcept(true)
 	: Expression(result_type), _sign(std::move(sign)), _left_operand(move(left_operand)), _right_operand(move(right_operand)) {
 
+
+
 }
 
 

@@ -527,6 +527,11 @@ Bytecode compile(const std::string& str) {
 
 #include "ast/parser/parser.hpp"
 #include <fstream>
+
+void dump_ast() {
+	
+}
+
 int main() {
 
 	using namespace batya_script::ast;

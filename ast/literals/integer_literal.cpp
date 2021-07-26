@@ -7,6 +7,6 @@
 
 using namespace batya_script::ast::literals;
 
-IntegerLiteral::IntegerLiteral(int value) noexcept(true) : Literal(typing::BuiltInTypesContainer::instance().integer()), _value(value) {
+IntegerLiteral::IntegerLiteral(int value) noexcept(true) : Literal(typing::BuiltInTypesContainer::instance().integer_4()), _value(value) {
 
 }

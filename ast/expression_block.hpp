@@ -6,19 +6,18 @@
 #define BATYA_SCRIPT_AST_EXPRESSION_BLOCK_HPP_
 
 #include "../utility/single_pointer.hpp"
+#include "../utility/indexed_container.hpp"
 #include <vector>
 #include "expression.hpp"
 
 namespace batya_script::ast {
 
-class ExpressionBlock : public Expression {
+class ExpressionBlock : public Expression, public utility::IndexedContainer<Expression> {
 public:
 
-	explicit ExpressionBlock(const typing::Type& type);
+	ExpressionBlock(const typing::Type& type, std::vector<batya_script::utility::SinglePointer<Expression>> children) noexcept(true);
 
-	void add(batya_script::utility::SinglePointer<Expression> expression) noexcept(true);
-
-	[[nodiscard]] const Expression& operator[](size_t index) const noexcept(false);
+	[[nodiscard]] const Expression& get(size_t index) const noexcept(false) override;
 
 private:
 	std::vector<batya_script::utility::SinglePointer<Expression>> _children;

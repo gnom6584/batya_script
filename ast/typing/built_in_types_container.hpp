@@ -8,16 +8,41 @@
 #include "type.hpp"
 #include "common_type.hpp"
 
+//////////////////////////////////////////////////////
+//                  !ХУЙНЯ ПОЛНАЯ!                  //
+//////////////////////////////////////////////////////
+
+
 namespace batya_script::ast::typing {
 
 class BuiltInTypesContainer {
 public:
 
-	[[nodiscard]] const Type& nothing() const;
+	[[nodiscard]] const Type& nothing() const noexcept(true);
 
-	[[nodiscard]] const Type& boolean() const;
+	[[nodiscard]] const Type& boolean() const noexcept(true);
 
-	[[nodiscard]] const Type& integer() const;
+	[[nodiscard]] const Type& integer_1() const noexcept(true);
+
+	[[nodiscard]] const Type& unsigned_integer_1() const noexcept(true);
+
+	[[nodiscard]] const Type& integer_2() const noexcept(true);
+
+	[[nodiscard]] const Type& unsigned_integer_2() const noexcept(true);
+
+	[[nodiscard]] const Type& integer_4() const noexcept(true);
+
+	[[nodiscard]] const Type& unsigned_integer_4() const noexcept(true);
+
+	[[nodiscard]] const Type& integer_8() const noexcept(true);
+
+	[[nodiscard]] const Type& unsigned_integer_8() const noexcept(true);
+
+	[[nodiscard]] const Type& float_4() const noexcept(true);
+
+	[[nodiscard]] const Type& float_8() const noexcept(true);
+
+	[[nodiscard]] const Type& from_str(const std::string& str) const noexcept(false);
 
 	[[nodiscard]] static const BuiltInTypesContainer& instance() noexcept(true);
 
@@ -28,7 +53,25 @@ private:
 
 	CommonType _nothing;
 
-	CommonType _integer;
+	CommonType _integer_1;
+
+	CommonType _unsigned_integer_1;
+
+	CommonType _integer_2;
+
+	CommonType _unsigned_integer_2;
+
+	CommonType _integer_4;
+
+	CommonType _unsigned_integer_4;
+
+	CommonType _integer_8;
+
+	CommonType _unsigned_integer_8;
+
+	CommonType _float_4;
+
+	CommonType _float_8;
 };
 
 }

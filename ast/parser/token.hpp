@@ -17,6 +17,10 @@ public:
 
 	[[nodiscard]] size_t position() const noexcept(true);
 
+	[[nodiscard]] operator std::string&() noexcept(true);
+
+	[[nodiscard]] operator const std::string&() const noexcept(true);
+
 private:
 	std::string _string;
 	size_t _position;

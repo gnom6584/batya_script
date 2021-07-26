@@ -12,8 +12,12 @@ using namespace declarations;
 
 VariableDeclaration::VariableDeclaration(const batya_script::ast::typing::Type& type, std::string name, std::optional<batya_script::utility::SinglePointer<Expression>> assignment) noexcept(false)
 	: Declaration(type), _name(move(name)), _assignment(move(assignment)) {
-	if(assignment.has_value() && assignment.value()->result_type() != type)
-		throw runtime_error("Invalid assignment type!");
+	auto thi = this;
+
+	if(_assignment.has_value()) {
+		if(_assignment.value()->result_type() != type)
+			throw runtime_error("Invalid assignment type!");
+	}
 }
 
 

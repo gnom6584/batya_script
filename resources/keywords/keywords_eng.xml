@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
+    <keyword key="Nothing" value = "Nothing"/>
+    <keyword key="Boolean" value = "Bool"/>
+    <keyword key="Integer_1" value="I1"/>
+    <keyword key="Unsigned_integer_1" value="U1"/>
+    <keyword key="Integer_2" value="I2"/>
+    <keyword key="Unsigned_integer_2" value="U2"/>
+    <keyword key="Integer_4" value="I4"/>
+    <keyword key="Unsigned_integer_4" value="U4"/>
+    <keyword key="Integer_8" value="I8"/>
+    <keyword key="Unsigned_integer_8" value="U8"/>
+    <keyword key="Float_4" value="F4"/>
+    <keyword key="Float_8" value="F8"/>
+    <keyword key = "true" value = "true"/>
+    <keyword key = "false" value = "false"/>
     <keyword key = "var" value = "var"/>
     <keyword key = "val" value = "val"/>
     <keyword key = "while" value = "while"/>
