@@ -14,3 +14,13 @@ batya_script::ast::ExpressionBlock::ExpressionBlock(const batya_script::ast::typ
 const batya_script::ast::Expression& batya_script::ast::ExpressionBlock::get(size_t index) const noexcept(false) {
 	return *_children.at(index);
 }
+
+
+size_t batya_script::ast::ExpressionBlock::min_index() const {
+	return 0;
+}
+
+
+size_t batya_script::ast::ExpressionBlock::max_index() const {
+	return _children.empty() ? 0 : _children.size() - 1;
+}

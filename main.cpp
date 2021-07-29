@@ -508,40 +508,58 @@ Literal to_bytecode(BytecodeBuilder& b, Tree* t, size_t pos) {
 		return lit;
 	}
 }
-
-Bytecode compile(const std::string& str) {
-	auto tokens = StringUtility::split_keep_by_strings(str, {"=", "var", "if", "while", "{", "}", "\n"});
-	BytecodeBuilder builder;
-	std::map<std::string, std::pair<Literal, size_t>> decls;
-	for(auto& token : tokens) {
-		token = StringUtility::strip(token);
-	}
-	int p = 0;
-	for (int i = 0; i < std::size(tokens); ++i) {
-
-	}
-	return builder.build();
-}
-#include "resources/keywords/keywords.hpp"
-#include "resources/keywords/keys.hpp"
-
+#include "ast/assignment.hpp"
+#include "ast/binary_operator.hpp"
+#include "ast/condition.hpp"
+#include "ast/declarations/declaration.hpp"
+#include "ast/declarations/function_declaration.hpp"
+#include "ast/declarations/variable_declaration.hpp"
+#include "ast/declaration_reference.hpp"
+#include "ast/expression.hpp"
+#include "ast/expression_block.hpp"
+#include "ast/function_invocation.hpp"
+#include "ast/literals/boolean_literal.hpp"
+#include "ast/literals/integer_literal.hpp"
+#include "ast/literals/literal.hpp"
 #include "ast/parser/parser.hpp"
-#include <fstream>
+#include "ast/parser/token.hpp"
+#include "ast/typing/binary_operator.hpp"
+#include "ast/typing/built_in_types_container.hpp"
+#include "ast/typing/common_type.hpp"
+#include "ast/typing/type.hpp"
+#include "ast/typing/unary_operator.hpp"
+#include "ast/unary_operator.hpp"
+#include "ast/while.hpp"
 
-void dump_ast() {
-	
-}
+using namespace batya_script::ast;
+using namespace batya_script::utility;
+using namespace declarations;
+using namespace typing;
+
+#include <fstream>
+#include "compiler/compiler.hpp"
 
 int main() {
 
-	using namespace batya_script::ast;
-	using namespace batya_script::utility;
 	std::ifstream f("/mnt/c/Users/Name/CLionProjects/batya_script/test");
 
 	std::stringstream ss;
 	ss << f.rdbuf();
 
-	SinglePointer<Expression> c = parser::parse(ss.str());
+	auto b = batya_script::Compiler::compile(ss.str());
+
+	auto bc = b;
+	std::cout << "BYTECODE:" << std::endl;
+	for(int i = 0; i < bc.size();) {
+		std::cout << codes::dump_command(bc.data() + i) << std::endl;
+		i += 1 + codes::size_of[*(bc.data() + i)];
+	}
+
+	Stack stack(1024);
+
+	Interpreter::run(bc, stack);
+
+	std::cout << *(int *)(stack.bytes());
 
 	return 0;
 }

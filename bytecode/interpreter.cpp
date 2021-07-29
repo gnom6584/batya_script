@@ -111,10 +111,12 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexc
 	auto* ptr = start_ptr;
 
 	while(ptr != end_ptr) {
+		if(ptr - start_ptr >= size(bytecode))
+			break;
 		auto code = *ptr;
 		++ptr;
 		auto stack_ptr = (!headers.empty() ? headers.top() : 0) + stack.bytes();
-	//	printf("%s\n", codes::to_c_string[code]);
+		//printf("%s\n", codes::spelling_of[code]);
 		switch (code) {
 			case codes::stack_allocate: {
 				stack.allocate(extract<size_t>(&ptr));

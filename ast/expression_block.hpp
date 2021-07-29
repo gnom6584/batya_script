@@ -19,6 +19,10 @@ public:
 
 	[[nodiscard]] const Expression& get(size_t index) const noexcept(false) override;
 
+	size_t min_index() const override;
+
+	size_t max_index() const override;
+
 private:
 	std::vector<batya_script::utility::SinglePointer<Expression>> _children;
 };

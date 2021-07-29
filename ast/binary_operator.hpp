@@ -21,6 +21,7 @@ public:
 	[[nodiscard]] const Expression& right_operand() const noexcept(true);
 
 private:
+
 	std::string _sign;
 
 	utility::SinglePointer<Expression> _left_operand;

@@ -13,6 +13,8 @@ class IntegerLiteral : public Literal {
 public:
 	explicit IntegerLiteral(int value) noexcept(true);
 
+	[[nodiscard]] int value() const noexcept(true) ;
+
 private:
 	int _value;
 

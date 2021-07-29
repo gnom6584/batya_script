@@ -10,19 +10,20 @@ using namespace batya_script::ast::typing;
 using namespace batya_script::resources::keywords;
 
 BuiltInTypesContainer::BuiltInTypesContainer() noexcept(true) :
-	_nothing(CommonType(get_key_spelling(Key::Nothing))),
-	_boolean(CommonType(get_key_spelling(Key::Boolean))),
-	_integer_1(CommonType(get_key_spelling(Key::Integer_1))),
-	_unsigned_integer_1(CommonType(get_key_spelling(Key::Unsigned_integer_1))),
-	_integer_2(CommonType(get_key_spelling(Key::Integer_2))),
-	_unsigned_integer_2(CommonType(get_key_spelling(Key::Unsigned_integer_2))),
-	_integer_4(CommonType(get_key_spelling(Key::Integer_4))),
-	_unsigned_integer_4(CommonType(get_key_spelling(Key::Unsigned_integer_4))),
-	_integer_8(CommonType(get_key_spelling(Key::Integer_8))),
-	_unsigned_integer_8(CommonType(get_key_spelling(Key::Unsigned_integer_8))),
-	_float_4(CommonType(get_key_spelling(Key::Float_4))),
-	_float_8(CommonType(get_key_spelling(Key::Float_8)))
-	{}
+	_nothing(CommonType(get_key_spelling(Key::Nothing), 0)),
+	_boolean(CommonType(get_key_spelling(Key::Boolean), 1)),
+	_integer_1(CommonType(get_key_spelling(Key::Integer_1), 1)),
+	_unsigned_integer_1(CommonType(get_key_spelling(Key::Unsigned_integer_1), 1)),
+	_integer_2(CommonType(get_key_spelling(Key::Integer_2), 2)),
+	_unsigned_integer_2(CommonType(get_key_spelling(Key::Unsigned_integer_2), 2)),
+	_integer_4(CommonType(get_key_spelling(Key::Integer_4), 4)),
+	_unsigned_integer_4(CommonType(get_key_spelling(Key::Unsigned_integer_4), 4)),
+	_integer_8(CommonType(get_key_spelling(Key::Integer_8), 8)),
+	_unsigned_integer_8(CommonType(get_key_spelling(Key::Unsigned_integer_8), 8)),
+	_float_4(CommonType(get_key_spelling(Key::Float_4), 4)),
+	_float_8(CommonType(get_key_spelling(Key::Float_8), 8))
+	{
+	}
 
 
 const BuiltInTypesContainer& BuiltInTypesContainer::instance() noexcept(true) {
@@ -92,6 +93,8 @@ const Type& BuiltInTypesContainer::float_8() const noexcept(true) {
 
 //ЕБАЛ
 const Type& BuiltInTypesContainer::from_str(const std::string& str) const noexcept(false) {
+	if(equals(str, Key::Boolean))
+		return _boolean;
 	if(equals(str, Key::Integer_1))
 		return _integer_1;
 	else if(equals(str, Key::Unsigned_integer_1))

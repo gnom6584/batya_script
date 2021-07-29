@@ -19,9 +19,11 @@ CMakeFiles/batya_script.dir/ast/condition.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/condition.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/condition.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 CMakeFiles/batya_script.dir/ast/declaration_reference.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/declaration_reference.cpp
@@ -36,6 +38,15 @@ CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+CMakeFiles/batya_script.dir/ast/declarations/function_declaration.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.cpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
 CMakeFiles/batya_script.dir/ast/declarations/variable_declaration.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.cpp
@@ -54,22 +65,33 @@ CMakeFiles/batya_script.dir/ast/expression_block.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/utility/indexed_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
+CMakeFiles/batya_script.dir/ast/function_invocation.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/function_invocation.cpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/function_invocation.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 CMakeFiles/batya_script.dir/ast/literals/boolean_literal.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
 CMakeFiles/batya_script.dir/ast/literals/integer_literal.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
 CMakeFiles/batya_script.dir/ast/literals/literal.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.cpp
@@ -81,18 +103,23 @@ CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/condition.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/declaration_reference.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/function_invocation.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/unary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.hpp
@@ -101,25 +128,45 @@ CMakeFiles/batya_script.dir/ast/parser/parser.cpp.o
 CMakeFiles/batya_script.dir/ast/parser/token.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.hpp
+CMakeFiles/batya_script.dir/ast/typing/binary_operator.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.cpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
 CMakeFiles/batya_script.dir/ast/typing/built_in_types_container.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.hpp
 CMakeFiles/batya_script.dir/ast/typing/common_type.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
 CMakeFiles/batya_script.dir/ast/typing/type.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+CMakeFiles/batya_script.dir/ast/typing/unary_operator.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.cpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
+CMakeFiles/batya_script.dir/ast/unary_operator.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/unary_operator.cpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/unary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 CMakeFiles/batya_script.dir/ast/while.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
@@ -138,18 +185,66 @@ CMakeFiles/batya_script.dir/bytecode/interpreter.cpp.o
 CMakeFiles/batya_script.dir/bytecode/stack.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.cpp
  /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.hpp
-CMakeFiles/batya_script.dir/main.cpp.o
+CMakeFiles/batya_script.dir/compiler/compiler.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/condition.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declaration_reference.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/function_invocation.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/unary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/compiler/compiler.cpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/compiler/compiler.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/utility/indexed_container.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
+CMakeFiles/batya_script.dir/main.cpp.o
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/assignment.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/binary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/condition.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declaration_reference.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/function_invocation.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/integer_literal.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/token.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/binary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/built_in_types_container.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/common_type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/unary_operator.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/ast/while.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/bytecode_builder.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/codes.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/interpreter.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/compiler/compiler.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/main.cpp
- /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.hpp
- /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keywords.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/string_utility.hpp
+ /mnt/c/Users/Name/CLionProjects/batya_script/utility/indexed_container.hpp
  /mnt/c/Users/Name/CLionProjects/batya_script/utility/single_pointer.hpp
 CMakeFiles/batya_script.dir/resources/keywords/keys.cpp.o
  /mnt/c/Users/Name/CLionProjects/batya_script/resources/keywords/keys.cpp

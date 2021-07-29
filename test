@@ -1,8 +1,5 @@
-var a = 10
-
-var b = a
-
-while b > 1 {
-    b = b - 1
-    a = a * b
+var c = 3
+{
+    c = 10
 }
+c

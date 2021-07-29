@@ -13,12 +13,15 @@
 #include "../../resources/keywords/keywords.hpp"
 #include "../declarations/variable_declaration.hpp"
 #include "../binary_operator.hpp"
+#include "../unary_operator.hpp"
 #include "../literals/integer_literal.hpp"
 #include "../literals/boolean_literal.hpp"
 #include "../condition.hpp"
 #include "../while.hpp"
 #include "../declaration_reference.hpp"
 #include "../assignment.hpp"
+#include "../declarations/function_declaration.hpp"
+#include "../function_invocation.hpp"
 
 using namespace std;
 using namespace batya_script;
@@ -30,28 +33,42 @@ using namespace parser;
 using namespace utility;
 using namespace resources;
 
-using Declarations = std::vector<std::map<std::string, const VariableDeclaration*>>;
+struct Declarations {
+	std::vector<std::map<std::string, const VariableDeclaration*>> variables;
 
+	std::vector<std::map<std::string, const FunctionDeclaration*>> functions;
 
-const VariableDeclaration& find_declaration(const Declarations& decls, const std::string& str) {
-	for (auto it = rbegin(decls); it != rend(decls); ++it) {
-		auto f = it->find(str);
-		if(f != end(*it))
-			return *f->second;
+	const VariableDeclaration& find_variable(const std::string& str) {
+		for (auto it = rbegin(variables); it != rend(variables); ++it) {
+			auto f = it->find(str);
+			if(f != end(*it))
+				return *f->second;
+		}
+		throw runtime_error("Declaration with name (" + str + ") is not found!");
 	}
-	throw runtime_error("Declaration with name (" + str + ") is not found!");
-}
+
+	const FunctionDeclaration& find_function(const std::string& str) {
+		for (auto it = rbegin(functions); it != rend(functions); ++it) {
+			auto f = it->find(str);
+			if(f != end(*it))
+				return *f->second;
+		}
+		throw runtime_error("Function with name (" + str + ") is not found!");
+	}
+};
+
+
 
 
 SinglePointer<Expression> parse_expression_block(const vector<Token>& tokens, size_t begin, size_t end, Declarations& decls);
 
 
-SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t begin, size_t& out_index, Declarations& decls) {
+SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t begin, size_t& out_index, Declarations& decls, bool check_operators = true) {
 	std::optional<SinglePointer<Expression>> result_expression;
 
 	if(keywords::equals(tokens[begin], keywords::Key::Var)) {
-		auto with_assigment = tokens.at(begin + 2).string() == "=";
-		auto with_assigment_and_explicit_type = tokens.at(begin + 4).string() == "=";
+		auto with_assigment = begin + 2 < size(tokens) ? tokens.at(begin + 2).string() == "=" : false;
+		auto with_assigment_and_explicit_type =  begin + 4 < size(tokens) ? tokens.at(begin + 4).string() == "=" : false;
 		if(with_assigment || with_assigment_and_explicit_type) {
 			if(with_assigment_and_explicit_type) {
 				const auto& expected_type = BuiltInTypesContainer::instance().from_str(tokens.at(begin + 3).string());
@@ -63,7 +80,7 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 					tokens.at(begin + 1).string(),
 					std::optional(move(assign_expression))
 				);
-				decls.back().emplace(tokens.at(begin + 1).string(), reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->()));
+				decls.variables.back()[tokens.at(begin + 1).string()] = reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->());
 			}
 			else {
 				auto assign_expression = parse_expression(tokens, begin + 3, out_index, decls);
@@ -73,7 +90,7 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 						tokens.at(begin + 1).string(),
 						move(assign_expression)
 					);
-				decls.back().emplace(tokens.at(begin + 1).string(), reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->()));
+				decls.variables.back()[tokens.at(begin + 1)] = reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->());
 			}
 		}
 		else {
@@ -83,7 +100,7 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 						type,
 						tokens.at(begin + 1).string()
 					);
-				decls.back().emplace(tokens.at(begin + 1).string(), reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->()));
+				decls.variables.back()[tokens.at(begin + 1).string()] = reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->());
 			}
 			else
 				throw runtime_error("Expected type specifier!");
@@ -127,16 +144,38 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 			if (keywords::equals(str, keywords::Key::True) || keywords::equals(str, keywords::Key::False)) {
 				result_expression = SinglePointer<Expression>::make_derived<BooleanLiteral>(keywords::equals(str, keywords::Key::True));
 				out_index = begin + 1;
-			} else {
+			}
+			else {
 				if (std::isalpha(str[0])) {
-					if(tokens.at(begin + 1).string() == "=") {
-						result_expression = SinglePointer<Expression>::make_derived<Assignment>(find_declaration(decls, str), parse_expression(tokens, begin + 2, out_index, decls));
+					if(begin + 1 < tokens.size()) {
+						if (tokens.at(begin + 1).string() == "=")
+							result_expression = SinglePointer<Expression>::make_derived<Assignment>(decls.find_variable(str), parse_expression(tokens, begin + 2, out_index, decls));
+						else if (tokens.at(begin + 1).string() == "(") {
+							const auto& fd = decls.find_function(str);
+							vector<SinglePointer<Expression>> args;
+
+							if (tokens.at(begin + 2).string() != ")") {
+
+								args.emplace_back(parse_expression(tokens, begin + 2, out_index, decls));
+								while (tokens.at(out_index).string() == ",")
+									args.emplace_back(parse_expression(tokens, out_index + 1, out_index, decls));
+								out_index++;
+							} else
+								out_index += 2;
+
+							result_expression = SinglePointer<Expression>::make_derived<FunctionInvocation>(fd, move(args));
+						}
+						else {
+							result_expression = SinglePointer<Expression>::make_derived<DeclarationReference>(decls.find_variable(str));
+							out_index = begin + 1;
+						}
 					}
 					else {
-						result_expression = SinglePointer<Expression>::make_derived<DeclarationReference>(find_declaration(decls, str));
+						result_expression = SinglePointer<Expression>::make_derived<DeclarationReference>(decls.find_variable(str));
 						out_index = begin + 1;
 					}
-				} else {
+				}
+				else {
 					auto is_integer = all_of(std::begin(str), end(str), [](char character) {
 						return std::isdigit(character);
 					});
@@ -151,26 +190,29 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 		}
 	}
 
-	//const static auto binary_operators = {
-	//	"+", "-", "*", "/", "%", "<", ">"
-	//};
 
-	//if(out_index < std::size(tokens))
-	//	while(count(std::begin(binary_operators), end(binary_operators), tokens[out_index].string()))
-	//		result_expression = SinglePointer<Expression>::make_derived<BinaryOperator>(result_expression.value()->result_type(), tokens[out_index], move(result_expression.value()), parse_expression(tokens, out_index + 1, out_index, decls));
+//	if(out_index < std::size(tokens))
+//		while(count(std::begin(binary_operators), end(binary_operators), tokens[out_index].string()))
+//			result_expression = SinglePointer<Expression>::make_derived<BinaryOperator>(result_expression.value()->result_type(), tokens[out_index], move(result_expression.value()), parse_expression(tokens, out_index + 1, out_index, decls));
+
+//	if(out_index < std::size(tokens))
+//		while(count(std::begin(binary_operators), end(binary_operators), tokens[out_index].string()))
+
 
 	return move(result_expression.value());
 }
 
 SinglePointer<Expression> parse_expression_block(const vector<Token>& tokens, size_t begin, size_t end, Declarations& decls) {
 	auto expressions = std::vector<SinglePointer<Expression>>();
-	decls.emplace_back();
+	decls.variables.emplace_back();
+	decls.functions.emplace_back();
 	size_t i = begin;
 	while(i < end) {
-		std::cout << i << std::endl;
+		//std::cout << i << std::endl;
 		expressions.emplace_back(parse_expression(tokens, i, i, decls));
 	}
-	decls.pop_back();
+	decls.functions.pop_back();
+	decls.variables.pop_back();
 	return SinglePointer<Expression>::make_derived<ExpressionBlock>(expressions.back()->result_type(), move(expressions));
 }
 
@@ -201,10 +243,20 @@ std::vector<Token> tokenize(const string& str) {
 	return tokens;
 }
 
+#include <functional>
 
 SinglePointer<Expression> parser::parse(const string& str) noexcept(false) {
-
 	const auto tokens = tokenize(str);
 	Declarations var_decls;
+	var_decls.functions.emplace_back();
+	var_decls.functions.back().emplace("greater", new FunctionDeclaration("greater",
+		{{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
+		BuiltInTypesContainer::instance().boolean()));
+	var_decls.functions.back().emplace("subtract", new FunctionDeclaration("subtract",
+																		  {{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
+																		  BuiltInTypesContainer::instance().integer_4()));
+	var_decls.functions.back().emplace("multiply", new FunctionDeclaration("multiply",
+																		   {{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
+																		   BuiltInTypesContainer::instance().integer_4()));
 	return move(parse_expression_block(tokens, 0, size(tokens), var_decls));
 }

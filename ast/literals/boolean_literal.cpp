@@ -11,3 +11,8 @@ BooleanLiteral::BooleanLiteral(bool value) noexcept(true)
 	: Literal(typing::BuiltInTypesContainer::instance().boolean()), _value(value) {
 
 }
+
+
+bool BooleanLiteral::value() const noexcept(true) {
+	return _value;
+}

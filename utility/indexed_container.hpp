@@ -14,6 +14,10 @@ class IndexedContainer {
 public:
 	[[nodiscard]] virtual const T& get(size_t index) const = 0;
 
+	[[nodiscard]] virtual size_t min_index() const = 0;
+
+	[[nodiscard]] virtual size_t max_index() const = 0;
+
 	[[nodiscard]] const T& operator[](size_t index) const;
 };
 

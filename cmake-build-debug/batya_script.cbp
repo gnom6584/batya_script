@@ -114,6 +114,12 @@
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/declaration.hpp">
 			<Option target="batya_script"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/function_declaration.hpp">
+			<Option target="batya_script"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/declarations/variable_declaration.cpp">
 			<Option target="batya_script"/>
 		</Unit>
@@ -132,6 +138,12 @@
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/expression_block.hpp">
 			<Option target="batya_script"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/function_invocation.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/function_invocation.hpp">
+			<Option target="batya_script"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/boolean_literal.cpp">
 			<Option target="batya_script"/>
 		</Unit>
@@ -148,12 +160,6 @@
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/literals/literal.hpp">
-			<Option target="batya_script"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/operators_chain.cpp">
-			<Option target="batya_script"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/operators_chain.hpp">
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/parser/parser.cpp">
@@ -192,6 +198,18 @@
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/type.hpp">
 			<Option target="batya_script"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/typing/unary_operator.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/unary_operator.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/unary_operator.hpp">
+			<Option target="batya_script"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/ast/while.cpp">
 			<Option target="batya_script"/>
 		</Unit>
@@ -220,6 +238,12 @@
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/bytecode/stack.hpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/compiler/compiler.cpp">
+			<Option target="batya_script"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/compiler/compiler.hpp">
 			<Option target="batya_script"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Name/CLionProjects/batya_script/main.cpp">

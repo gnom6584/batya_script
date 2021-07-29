@@ -14,6 +14,8 @@ public:
 
 	explicit BooleanLiteral(bool value) noexcept(true);
 
+	[[nodiscard]] bool value() const noexcept(true);
+
 private:
 
 	bool _value;

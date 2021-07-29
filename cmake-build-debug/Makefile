@@ -258,6 +258,33 @@ ast/declarations/declaration.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/declaration.cpp.s
 .PHONY : ast/declarations/declaration.cpp.s
 
+ast/declarations/function_declaration.o: ast/declarations/function_declaration.cpp.o
+
+.PHONY : ast/declarations/function_declaration.o
+
+# target to build an object file
+ast/declarations/function_declaration.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/function_declaration.cpp.o
+.PHONY : ast/declarations/function_declaration.cpp.o
+
+ast/declarations/function_declaration.i: ast/declarations/function_declaration.cpp.i
+
+.PHONY : ast/declarations/function_declaration.i
+
+# target to preprocess a source file
+ast/declarations/function_declaration.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/function_declaration.cpp.i
+.PHONY : ast/declarations/function_declaration.cpp.i
+
+ast/declarations/function_declaration.s: ast/declarations/function_declaration.cpp.s
+
+.PHONY : ast/declarations/function_declaration.s
+
+# target to generate assembly for a file
+ast/declarations/function_declaration.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/declarations/function_declaration.cpp.s
+.PHONY : ast/declarations/function_declaration.cpp.s
+
 ast/declarations/variable_declaration.o: ast/declarations/variable_declaration.cpp.o
 
 .PHONY : ast/declarations/variable_declaration.o
@@ -339,6 +366,33 @@ ast/expression_block.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/expression_block.cpp.s
 .PHONY : ast/expression_block.cpp.s
 
+ast/function_invocation.o: ast/function_invocation.cpp.o
+
+.PHONY : ast/function_invocation.o
+
+# target to build an object file
+ast/function_invocation.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/function_invocation.cpp.o
+.PHONY : ast/function_invocation.cpp.o
+
+ast/function_invocation.i: ast/function_invocation.cpp.i
+
+.PHONY : ast/function_invocation.i
+
+# target to preprocess a source file
+ast/function_invocation.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/function_invocation.cpp.i
+.PHONY : ast/function_invocation.cpp.i
+
+ast/function_invocation.s: ast/function_invocation.cpp.s
+
+.PHONY : ast/function_invocation.s
+
+# target to generate assembly for a file
+ast/function_invocation.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/function_invocation.cpp.s
+.PHONY : ast/function_invocation.cpp.s
+
 ast/literals/boolean_literal.o: ast/literals/boolean_literal.cpp.o
 
 .PHONY : ast/literals/boolean_literal.o
@@ -419,33 +473,6 @@ ast/literals/literal.s: ast/literals/literal.cpp.s
 ast/literals/literal.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/literals/literal.cpp.s
 .PHONY : ast/literals/literal.cpp.s
-
-ast/operators_chain.o: ast/operators_chain.cpp.o
-
-.PHONY : ast/operators_chain.o
-
-# target to build an object file
-ast/operators_chain.cpp.o:
-	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/operators_chain.cpp.o
-.PHONY : ast/operators_chain.cpp.o
-
-ast/operators_chain.i: ast/operators_chain.cpp.i
-
-.PHONY : ast/operators_chain.i
-
-# target to preprocess a source file
-ast/operators_chain.cpp.i:
-	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/operators_chain.cpp.i
-.PHONY : ast/operators_chain.cpp.i
-
-ast/operators_chain.s: ast/operators_chain.cpp.s
-
-.PHONY : ast/operators_chain.s
-
-# target to generate assembly for a file
-ast/operators_chain.cpp.s:
-	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/operators_chain.cpp.s
-.PHONY : ast/operators_chain.cpp.s
 
 ast/parser/parser.o: ast/parser/parser.cpp.o
 
@@ -609,6 +636,60 @@ ast/typing/type.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/type.cpp.s
 .PHONY : ast/typing/type.cpp.s
 
+ast/typing/unary_operator.o: ast/typing/unary_operator.cpp.o
+
+.PHONY : ast/typing/unary_operator.o
+
+# target to build an object file
+ast/typing/unary_operator.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/unary_operator.cpp.o
+.PHONY : ast/typing/unary_operator.cpp.o
+
+ast/typing/unary_operator.i: ast/typing/unary_operator.cpp.i
+
+.PHONY : ast/typing/unary_operator.i
+
+# target to preprocess a source file
+ast/typing/unary_operator.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/unary_operator.cpp.i
+.PHONY : ast/typing/unary_operator.cpp.i
+
+ast/typing/unary_operator.s: ast/typing/unary_operator.cpp.s
+
+.PHONY : ast/typing/unary_operator.s
+
+# target to generate assembly for a file
+ast/typing/unary_operator.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/typing/unary_operator.cpp.s
+.PHONY : ast/typing/unary_operator.cpp.s
+
+ast/unary_operator.o: ast/unary_operator.cpp.o
+
+.PHONY : ast/unary_operator.o
+
+# target to build an object file
+ast/unary_operator.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/unary_operator.cpp.o
+.PHONY : ast/unary_operator.cpp.o
+
+ast/unary_operator.i: ast/unary_operator.cpp.i
+
+.PHONY : ast/unary_operator.i
+
+# target to preprocess a source file
+ast/unary_operator.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/unary_operator.cpp.i
+.PHONY : ast/unary_operator.cpp.i
+
+ast/unary_operator.s: ast/unary_operator.cpp.s
+
+.PHONY : ast/unary_operator.s
+
+# target to generate assembly for a file
+ast/unary_operator.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/ast/unary_operator.cpp.s
+.PHONY : ast/unary_operator.cpp.s
+
 ast/while.o: ast/while.cpp.o
 
 .PHONY : ast/while.o
@@ -743,6 +824,33 @@ bytecode/stack.s: bytecode/stack.cpp.s
 bytecode/stack.cpp.s:
 	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/bytecode/stack.cpp.s
 .PHONY : bytecode/stack.cpp.s
+
+compiler/compiler.o: compiler/compiler.cpp.o
+
+.PHONY : compiler/compiler.o
+
+# target to build an object file
+compiler/compiler.cpp.o:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/compiler/compiler.cpp.o
+.PHONY : compiler/compiler.cpp.o
+
+compiler/compiler.i: compiler/compiler.cpp.i
+
+.PHONY : compiler/compiler.i
+
+# target to preprocess a source file
+compiler/compiler.cpp.i:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/compiler/compiler.cpp.i
+.PHONY : compiler/compiler.cpp.i
+
+compiler/compiler.s: compiler/compiler.cpp.s
+
+.PHONY : compiler/compiler.s
+
+# target to generate assembly for a file
+compiler/compiler.cpp.s:
+	$(MAKE) -f CMakeFiles/batya_script.dir/build.make CMakeFiles/batya_script.dir/compiler/compiler.cpp.s
+.PHONY : compiler/compiler.cpp.s
 
 main.o: main.cpp.o
 
@@ -930,6 +1038,9 @@ help:
 	@echo "... ast/declarations/declaration.o"
 	@echo "... ast/declarations/declaration.i"
 	@echo "... ast/declarations/declaration.s"
+	@echo "... ast/declarations/function_declaration.o"
+	@echo "... ast/declarations/function_declaration.i"
+	@echo "... ast/declarations/function_declaration.s"
 	@echo "... ast/declarations/variable_declaration.o"
 	@echo "... ast/declarations/variable_declaration.i"
 	@echo "... ast/declarations/variable_declaration.s"
@@ -939,6 +1050,9 @@ help:
 	@echo "... ast/expression_block.o"
 	@echo "... ast/expression_block.i"
 	@echo "... ast/expression_block.s"
+	@echo "... ast/function_invocation.o"
+	@echo "... ast/function_invocation.i"
+	@echo "... ast/function_invocation.s"
 	@echo "... ast/literals/boolean_literal.o"
 	@echo "... ast/literals/boolean_literal.i"
 	@echo "... ast/literals/boolean_literal.s"
@@ -948,9 +1062,6 @@ help:
 	@echo "... ast/literals/literal.o"
 	@echo "... ast/literals/literal.i"
 	@echo "... ast/literals/literal.s"
-	@echo "... ast/operators_chain.o"
-	@echo "... ast/operators_chain.i"
-	@echo "... ast/operators_chain.s"
 	@echo "... ast/parser/parser.o"
 	@echo "... ast/parser/parser.i"
 	@echo "... ast/parser/parser.s"
@@ -969,6 +1080,12 @@ help:
 	@echo "... ast/typing/type.o"
 	@echo "... ast/typing/type.i"
 	@echo "... ast/typing/type.s"
+	@echo "... ast/typing/unary_operator.o"
+	@echo "... ast/typing/unary_operator.i"
+	@echo "... ast/typing/unary_operator.s"
+	@echo "... ast/unary_operator.o"
+	@echo "... ast/unary_operator.i"
+	@echo "... ast/unary_operator.s"
 	@echo "... ast/while.o"
 	@echo "... ast/while.i"
 	@echo "... ast/while.s"
@@ -984,6 +1101,9 @@ help:
 	@echo "... bytecode/stack.o"
 	@echo "... bytecode/stack.i"
 	@echo "... bytecode/stack.s"
+	@echo "... compiler/compiler.o"
+	@echo "... compiler/compiler.i"
+	@echo "... compiler/compiler.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

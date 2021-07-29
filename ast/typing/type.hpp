@@ -12,6 +12,9 @@ namespace batya_script::ast::typing
 
 class Type {
 public:
+
+	[[nodiscard]] virtual size_t size() const noexcept(true) = 0;
+
 	[[nodiscard]] virtual std::string_view name() const noexcept(true) = 0;
 
 	[[nodiscard]] bool operator==(const Type& right) const noexcept(true);
