@@ -253,6 +253,16 @@ void BytecodeBuilder::equal_64(size_t destination_address, size_t source_address
 }
 
 
+void BytecodeBuilder::inverse_boolean(size_t bool_address) noexcept(true) {
+    ++_position;
+    _bytecode.emplace_back(codes::inverse_boolean);
+    for(size_t i = 0; i < codes::size_of[codes::inverse_boolean]; ++i)
+        _bytecode.emplace_back();
+    memcpy(_bytecode.data() + _position, &bool_address, sizeof(size_t));
+   _position += sizeof(size_t);
+}
+
+
 void BytecodeBuilder::and_boolean(size_t destination_address, size_t source_address) noexcept(true) {
     ++_position;
     _bytecode.emplace_back(codes::and_boolean);

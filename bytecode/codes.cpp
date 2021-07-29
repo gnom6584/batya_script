@@ -214,6 +214,14 @@ switch(*ptr) {
         offset += sizeof(size_t);
         return std::move(ss.str());
     }
+    case codes::inverse_boolean: {
+        std::stringstream ss;
+        ss << "inverse_boolean: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
     case codes::and_boolean: {
         std::stringstream ss;
         ss << "and_boolean: ";

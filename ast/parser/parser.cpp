@@ -107,6 +107,8 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 		}
 	}
 	else if(keywords::equals(tokens[begin], keywords::Key::If)) {
+		decls.variables.emplace_back();
+		decls.functions.emplace_back();
 		auto bool_expression = parse_expression(tokens, begin + 1, out_index, decls);
 		auto on_true_expression = parse_expression(tokens, out_index, out_index, decls);
 		if(keywords::equals(tokens[out_index], keywords::Key::Else)) {
@@ -115,6 +117,8 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 		}
 		else
 			result_expression = SinglePointer<Expression>::make_derived<Condition>(move(bool_expression), move(on_true_expression));
+		decls.variables.pop_back();
+		decls.functions.pop_back();
 	}
 	else if(keywords::equals(tokens[begin], keywords::Key::While)) {
 		auto bool_expression = parse_expression(tokens, begin + 1, out_index, decls);

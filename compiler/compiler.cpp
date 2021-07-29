@@ -52,7 +52,7 @@ struct Declarations {
 
 	vector<map<string, pair<const FunctionDeclaration*, size_t>>> fun_s;
 
-	vector<size_t> sp;
+	size_t sp {};
 
 	size_t find_variable(const std::string& str) {
 		for (auto it = rbegin(var_s); it != rend(var_s); ++it) {
@@ -91,13 +91,13 @@ void compile_boolean_literal(BytecodeBuilder& builder, const BooleanLiteral& lit
 
 void compile_condition(BytecodeBuilder& builder, const Condition& cond, Declarations& declarations, optional<size_t> out_result) {
 	builder.stack_allocate(cond.bool_expression().result_type().size());
-	auto temp = declarations.sp.back();
+	auto temp = declarations.sp;
 
-	declarations.sp.back() += cond.bool_expression().result_type().size();
+	declarations.sp += cond.bool_expression().result_type().size();
 
 	compile_expression(builder, cond.bool_expression(), declarations, temp);
 
-	auto go_to_pos = builder.position();
+	builder.inverse_boolean(temp);
 
 	BytecodeBuilder expr_builder;
 	compile_expression(expr_builder, cond.on_true_expression(), declarations, {});
@@ -108,16 +108,14 @@ void compile_condition(BytecodeBuilder& builder, const Condition& cond, Declarat
 
 	auto label = builder.position();
 
-	auto size = label - go_to_pos;
-
 }
 
 void compile_var_declaration(BytecodeBuilder& builder, const VariableDeclaration& vd, Declarations& declarations, optional<size_t> out_result) {
 	builder.stack_allocate(vd.result_type().size());
-	auto temp = declarations.sp.back();
+	auto temp = declarations.sp;
 	declarations.var_s.back()[vd.name()] = temp;
 
-	declarations.sp.back() += vd.result_type().size();
+	declarations.sp += vd.result_type().size();
 
 	if (vd.has_assignment()) {
 		compile_expression(builder, vd.assignment(), declarations, temp);
@@ -129,14 +127,10 @@ void compile_var_declaration(BytecodeBuilder& builder, const VariableDeclaration
 }
 
 void compile_assigment(BytecodeBuilder& builder, const Assignment& assignment, Declarations& declarations, optional<size_t> out_result) {
-	auto temp = declarations.sp.back();
+	auto temp = declarations.sp;
 	compile_expression(builder, assignment.assignment_expression(), declarations, temp);
 
-	size_t sum = 0;
-	for (int i = 0; i < declarations.sp.size(); ++i) {
-		sum += declarations.sp[i];
-	}
-	builder.copy(sum + declarations.find_variable(assignment.declaration().name()), declarations.sp.back(), assignment.result_type().size());
+	builder.copy(declarations.find_variable(assignment.declaration().name()), declarations.sp, assignment.result_type().size());
 
 	if (out_result.has_value())
 		builder.copy(out_result.value(), temp, assignment.result_type().size());
@@ -149,20 +143,21 @@ void compile_decl_reference(BytecodeBuilder& builder, const DeclarationReference
 
 
 void compile_block(BytecodeBuilder& builder, const ExpressionBlock& block, Declarations& declarations, optional<size_t> out_result) {
-	auto temp = declarations.sp.back();
-	builder.stack_push();
+	auto temp = declarations.sp;
+	//builder.stack_push();
 	declarations.var_s.emplace_back();
 	declarations.fun_s.emplace_back();
-	declarations.sp.emplace_back(0);
 	builder.stack_allocate(block.result_type().size());
-	declarations.sp.back() += block.result_type().size();
+	declarations.sp += block.result_type().size();
+
 	for (auto i = block.min_index(); i < block.max_index(); ++i)
 		compile_expression(builder, block[i], declarations, {});
-	compile_expression(builder, block[block.max_index()], declarations, 0);
-	declarations.sp.pop_back();
+
+	compile_expression(builder, block[block.max_index()], declarations, temp);
+
 	declarations.var_s.pop_back();
 	declarations.fun_s.pop_back();
-	builder.stack_pop();
+	//builder.stack_pop();
 
 	if (out_result.has_value())
 		builder.copy(out_result.value(), temp, block.result_type().size());
@@ -204,11 +199,9 @@ Bytecode Compiler::compile(const string& str) {
 	Declarations decls;
 	decls.var_s.emplace_back();
 	decls.fun_s.emplace_back();
-	decls.sp = {0};
-	decls.sp.back() += ast->result_type().size();
+	decls.sp = 0;
 	size_t result = 0;
 	BytecodeBuilder builder;
-	builder.stack_allocate(ast->result_type().size());
 	compile_expression(builder, *ast, decls, result);
 	return builder.build();
 }

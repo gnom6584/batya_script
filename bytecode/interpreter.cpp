@@ -175,6 +175,12 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexc
 				break;
 			}
 
+			case codes::inverse_boolean: {
+				auto dst = stack_ptr + extract<size_t>(&ptr);
+				*(bool*)dst = !*(bool*)dst;
+				break;
+			}
+
 			case codes::and_boolean: {
 				auto dst = stack_ptr + extract<size_t>(&ptr);
 				auto src = stack_ptr + extract<size_t>(&ptr);

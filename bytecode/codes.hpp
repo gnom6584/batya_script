@@ -47,155 +47,157 @@ constexpr inline unsigned char copy_64 = 17;
 
 constexpr inline unsigned char equal_64 = 18;
 
-constexpr inline unsigned char and_boolean = 19;
+constexpr inline unsigned char inverse_boolean = 19;
 
-constexpr inline unsigned char or_boolean = 20;
+constexpr inline unsigned char and_boolean = 20;
 
-constexpr inline unsigned char set_boolean = 21;
+constexpr inline unsigned char or_boolean = 21;
 
-constexpr inline unsigned char set_integer_8 = 22;
+constexpr inline unsigned char set_boolean = 22;
 
-constexpr inline unsigned char set_unsigned_integer_8 = 23;
+constexpr inline unsigned char set_integer_8 = 23;
 
-constexpr inline unsigned char set_integer_16 = 24;
+constexpr inline unsigned char set_unsigned_integer_8 = 24;
 
-constexpr inline unsigned char set_unsigned_integer_16 = 25;
+constexpr inline unsigned char set_integer_16 = 25;
 
-constexpr inline unsigned char set_integer_32 = 26;
+constexpr inline unsigned char set_unsigned_integer_16 = 26;
 
-constexpr inline unsigned char set_unsigned_integer_32 = 27;
+constexpr inline unsigned char set_integer_32 = 27;
 
-constexpr inline unsigned char set_integer_64 = 28;
+constexpr inline unsigned char set_unsigned_integer_32 = 28;
 
-constexpr inline unsigned char set_unsigned_integer_64 = 29;
+constexpr inline unsigned char set_integer_64 = 29;
 
-constexpr inline unsigned char set_float_32 = 30;
+constexpr inline unsigned char set_unsigned_integer_64 = 30;
 
-constexpr inline unsigned char set_float_64 = 31;
+constexpr inline unsigned char set_float_32 = 31;
 
-constexpr inline unsigned char less_integer_8 = 32;
+constexpr inline unsigned char set_float_64 = 32;
 
-constexpr inline unsigned char less_unsigned_integer_8 = 33;
+constexpr inline unsigned char less_integer_8 = 33;
 
-constexpr inline unsigned char less_integer_16 = 34;
+constexpr inline unsigned char less_unsigned_integer_8 = 34;
 
-constexpr inline unsigned char less_unsigned_integer_16 = 35;
+constexpr inline unsigned char less_integer_16 = 35;
 
-constexpr inline unsigned char less_integer_32 = 36;
+constexpr inline unsigned char less_unsigned_integer_16 = 36;
 
-constexpr inline unsigned char less_unsigned_integer_32 = 37;
+constexpr inline unsigned char less_integer_32 = 37;
 
-constexpr inline unsigned char less_integer_64 = 38;
+constexpr inline unsigned char less_unsigned_integer_32 = 38;
 
-constexpr inline unsigned char less_unsigned_integer_64 = 39;
+constexpr inline unsigned char less_integer_64 = 39;
 
-constexpr inline unsigned char less_float_32 = 40;
+constexpr inline unsigned char less_unsigned_integer_64 = 40;
 
-constexpr inline unsigned char less_float_64 = 41;
+constexpr inline unsigned char less_float_32 = 41;
 
-constexpr inline unsigned char add_integer_8 = 42;
+constexpr inline unsigned char less_float_64 = 42;
 
-constexpr inline unsigned char add_unsigned_integer_8 = 43;
+constexpr inline unsigned char add_integer_8 = 43;
 
-constexpr inline unsigned char add_integer_16 = 44;
+constexpr inline unsigned char add_unsigned_integer_8 = 44;
 
-constexpr inline unsigned char add_unsigned_integer_16 = 45;
+constexpr inline unsigned char add_integer_16 = 45;
 
-constexpr inline unsigned char add_integer_32 = 46;
+constexpr inline unsigned char add_unsigned_integer_16 = 46;
 
-constexpr inline unsigned char add_unsigned_integer_32 = 47;
+constexpr inline unsigned char add_integer_32 = 47;
 
-constexpr inline unsigned char add_integer_64 = 48;
+constexpr inline unsigned char add_unsigned_integer_32 = 48;
 
-constexpr inline unsigned char add_unsigned_integer_64 = 49;
+constexpr inline unsigned char add_integer_64 = 49;
 
-constexpr inline unsigned char add_float_32 = 50;
+constexpr inline unsigned char add_unsigned_integer_64 = 50;
 
-constexpr inline unsigned char add_float_64 = 51;
+constexpr inline unsigned char add_float_32 = 51;
 
-constexpr inline unsigned char subtract_integer_8 = 52;
+constexpr inline unsigned char add_float_64 = 52;
 
-constexpr inline unsigned char subtract_unsigned_integer_8 = 53;
+constexpr inline unsigned char subtract_integer_8 = 53;
 
-constexpr inline unsigned char subtract_integer_16 = 54;
+constexpr inline unsigned char subtract_unsigned_integer_8 = 54;
 
-constexpr inline unsigned char subtract_unsigned_integer_16 = 55;
+constexpr inline unsigned char subtract_integer_16 = 55;
 
-constexpr inline unsigned char subtract_integer_32 = 56;
+constexpr inline unsigned char subtract_unsigned_integer_16 = 56;
 
-constexpr inline unsigned char subtract_unsigned_integer_32 = 57;
+constexpr inline unsigned char subtract_integer_32 = 57;
 
-constexpr inline unsigned char subtract_integer_64 = 58;
+constexpr inline unsigned char subtract_unsigned_integer_32 = 58;
 
-constexpr inline unsigned char subtract_unsigned_integer_64 = 59;
+constexpr inline unsigned char subtract_integer_64 = 59;
 
-constexpr inline unsigned char subtract_float_32 = 60;
+constexpr inline unsigned char subtract_unsigned_integer_64 = 60;
 
-constexpr inline unsigned char subtract_float_64 = 61;
+constexpr inline unsigned char subtract_float_32 = 61;
 
-constexpr inline unsigned char multiply_integer_8 = 62;
+constexpr inline unsigned char subtract_float_64 = 62;
 
-constexpr inline unsigned char multiply_unsigned_integer_8 = 63;
+constexpr inline unsigned char multiply_integer_8 = 63;
 
-constexpr inline unsigned char multiply_integer_16 = 64;
+constexpr inline unsigned char multiply_unsigned_integer_8 = 64;
 
-constexpr inline unsigned char multiply_unsigned_integer_16 = 65;
+constexpr inline unsigned char multiply_integer_16 = 65;
 
-constexpr inline unsigned char multiply_integer_32 = 66;
+constexpr inline unsigned char multiply_unsigned_integer_16 = 66;
 
-constexpr inline unsigned char multiply_unsigned_integer_32 = 67;
+constexpr inline unsigned char multiply_integer_32 = 67;
 
-constexpr inline unsigned char multiply_integer_64 = 68;
+constexpr inline unsigned char multiply_unsigned_integer_32 = 68;
 
-constexpr inline unsigned char multiply_unsigned_integer_64 = 69;
+constexpr inline unsigned char multiply_integer_64 = 69;
 
-constexpr inline unsigned char multiply_float_32 = 70;
+constexpr inline unsigned char multiply_unsigned_integer_64 = 70;
 
-constexpr inline unsigned char multiply_float_64 = 71;
+constexpr inline unsigned char multiply_float_32 = 71;
 
-constexpr inline unsigned char divide_integer_8 = 72;
+constexpr inline unsigned char multiply_float_64 = 72;
 
-constexpr inline unsigned char divide_unsigned_integer_8 = 73;
+constexpr inline unsigned char divide_integer_8 = 73;
 
-constexpr inline unsigned char divide_integer_16 = 74;
+constexpr inline unsigned char divide_unsigned_integer_8 = 74;
 
-constexpr inline unsigned char divide_unsigned_integer_16 = 75;
+constexpr inline unsigned char divide_integer_16 = 75;
 
-constexpr inline unsigned char divide_integer_32 = 76;
+constexpr inline unsigned char divide_unsigned_integer_16 = 76;
 
-constexpr inline unsigned char divide_unsigned_integer_32 = 77;
+constexpr inline unsigned char divide_integer_32 = 77;
 
-constexpr inline unsigned char divide_integer_64 = 78;
+constexpr inline unsigned char divide_unsigned_integer_32 = 78;
 
-constexpr inline unsigned char divide_unsigned_integer_64 = 79;
+constexpr inline unsigned char divide_integer_64 = 79;
 
-constexpr inline unsigned char divide_float_32 = 80;
+constexpr inline unsigned char divide_unsigned_integer_64 = 80;
 
-constexpr inline unsigned char divide_float_64 = 81;
+constexpr inline unsigned char divide_float_32 = 81;
 
-constexpr inline unsigned char modulus_integer_8 = 82;
+constexpr inline unsigned char divide_float_64 = 82;
 
-constexpr inline unsigned char modulus_unsigned_integer_8 = 83;
+constexpr inline unsigned char modulus_integer_8 = 83;
 
-constexpr inline unsigned char modulus_integer_16 = 84;
+constexpr inline unsigned char modulus_unsigned_integer_8 = 84;
 
-constexpr inline unsigned char modulus_unsigned_integer_16 = 85;
+constexpr inline unsigned char modulus_integer_16 = 85;
 
-constexpr inline unsigned char modulus_integer_32 = 86;
+constexpr inline unsigned char modulus_unsigned_integer_16 = 86;
 
-constexpr inline unsigned char modulus_unsigned_integer_32 = 87;
+constexpr inline unsigned char modulus_integer_32 = 87;
 
-constexpr inline unsigned char modulus_integer_64 = 88;
+constexpr inline unsigned char modulus_unsigned_integer_32 = 88;
 
-constexpr inline unsigned char modulus_unsigned_integer_64 = 89;
+constexpr inline unsigned char modulus_integer_64 = 89;
 
-constexpr inline unsigned char modulus_float_32 = 90;
+constexpr inline unsigned char modulus_unsigned_integer_64 = 90;
 
-constexpr inline unsigned char modulus_float_64 = 91;
+constexpr inline unsigned char modulus_float_32 = 91;
 
-constexpr inline unsigned char signal = 92;
+constexpr inline unsigned char modulus_float_64 = 92;
 
-constexpr std::array<unsigned char, 93> size_of {
+constexpr inline unsigned char signal = 93;
+
+constexpr std::array<unsigned char, 94> size_of {
 /*stack_allocate*/ sizeof(size_t),
 /*stack_free*/ sizeof(size_t),
 /*heap_allocate*/ sizeof(size_t) + sizeof(size_t),
@@ -215,6 +217,7 @@ constexpr std::array<unsigned char, 93> size_of {
 /*equal_32*/ sizeof(size_t) + sizeof(size_t) + sizeof(size_t),
 /*copy_64*/ sizeof(size_t) + sizeof(size_t),
 /*equal_64*/ sizeof(size_t) + sizeof(size_t) + sizeof(size_t),
+/*inverse_boolean*/ sizeof(size_t),
 /*and_boolean*/ sizeof(size_t) + sizeof(size_t),
 /*or_boolean*/ sizeof(size_t) + sizeof(size_t),
 /*set_boolean*/ sizeof(size_t) + sizeof(bool),
@@ -291,7 +294,7 @@ constexpr std::array<unsigned char, 93> size_of {
 /*signal*/ sizeof(const char*)
 };
 
-constexpr std::array<const char*, 93> spelling_of {
+constexpr std::array<const char*, 94> spelling_of {
 /*stack_allocate*/ "stack_allocate",
 /*stack_free*/ "stack_free",
 /*heap_allocate*/ "heap_allocate",
@@ -311,6 +314,7 @@ constexpr std::array<const char*, 93> spelling_of {
 /*equal_32*/ "equal_32",
 /*copy_64*/ "copy_64",
 /*equal_64*/ "equal_64",
+/*inverse_boolean*/ "inverse_boolean",
 /*and_boolean*/ "and_boolean",
 /*or_boolean*/ "or_boolean",
 /*set_boolean*/ "set_boolean",

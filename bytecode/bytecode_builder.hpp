@@ -60,6 +60,8 @@ public:
 
     void equal_64(size_t destination_address, size_t source_address, size_t out_address) noexcept(true); 
 
+    void inverse_boolean(size_t bool_address) noexcept(true); 
+
     void and_boolean(size_t destination_address, size_t source_address) noexcept(true); 
 
     void or_boolean(size_t destination_address, size_t source_address) noexcept(true); 

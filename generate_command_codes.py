@@ -122,9 +122,9 @@ builder_hpp += 'public:\n\n'
 builder_hpp += '    BytecodeBuilder() noexcept(true);\n\n'
 builder_hpp += '    [[nodiscard]] size_t position() const noexcept(true);\n\n'
 builder_hpp += '    [[nodiscard]] Bytecode build() noexcept(true);\n\n'
-builder_hpp += '    0vяoid append(const Bytecode& other_bytecode) noexcept(true);\n\n'
+builder_hpp += '    void append(const Bytecode& other_bytecode) noexcept(true);\n\n'
 
-builder_cpp += 'BytecodeBuilder::BytecodeBuilder() noexcept(true)\n    : _bytecode({}), _position(0) {}\n\n\n'
+builder_cpp += 'BytecodeBuilder::BytecodeBuilder() noexcept(true)\n : _bytecode({}), _position(0) {}\n\n\n'
 
 builder_cpp += 'size_t BytecodeBuilder::position() const noexcept(true) {\n'
 builder_cpp += '    return _position;'

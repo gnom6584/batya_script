@@ -26,6 +26,7 @@ equal_32 (size_t destination_address, size_t source_address, size_t out_address)
 copy_64 (size_t destination_address, size_t source_address)
 equal_64 (size_t destination_address, size_t source_address, size_t out_address)
 
+inverse_boolean(size_t bool_address)
 and_boolean (size_t destination_address, size_t source_address)
 or_boolean (size_t destination_address, size_t source_address)
 
