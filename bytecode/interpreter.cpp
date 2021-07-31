@@ -103,10 +103,9 @@ auto out = stack_ptr + extract<size_t>(&ptr); \
 break; \
 } \
 
-void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexcept(false) {
+void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::stack<size_t>& headers) noexcept(false) {
 	auto* start_ptr = bytecode.data();
 	auto* end_ptr = bytecode.data() + std::size(bytecode);
-	std::stack<size_t> headers;
 
 	auto* ptr = start_ptr;
 
@@ -114,9 +113,10 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexc
 		if(ptr - start_ptr >= size(bytecode))
 			break;
 		auto code = *ptr;
+		printf("%s\n", codes::dump_command(ptr).c_str());
+
 		++ptr;
 		auto stack_ptr = (!headers.empty() ? headers.top() : 0) + stack.bytes();
-		//printf("%s\n", codes::spelling_of[code]);
 		switch (code) {
 			case codes::stack_allocate: {
 				stack.allocate(extract<size_t>(&ptr));
@@ -192,6 +192,12 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack) noexc
 				auto dst = extract<size_t>(&ptr);
 				auto src = extract<size_t>(&ptr);
 				*(bool*)dst = *(bool*)dst | *(bool*)src;
+				break;
+			}
+
+			case codes::execute_byte_code: {
+				auto bca = extract<size_t>(&ptr);
+				run(*(vector<unsigned char>*)bca, stack, headers);
 				break;
 			}
 

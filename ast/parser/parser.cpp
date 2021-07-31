@@ -22,6 +22,7 @@
 #include "../assignment.hpp"
 #include "../declarations/function_declaration.hpp"
 #include "../function_invocation.hpp"
+#include <functional>
 
 using namespace std;
 using namespace batya_script;
@@ -121,9 +122,54 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 		decls.functions.pop_back();
 	}
 	else if(keywords::equals(tokens[begin], keywords::Key::While)) {
+		decls.variables.emplace_back();
+		decls.functions.emplace_back();
 		auto bool_expression = parse_expression(tokens, begin + 1, out_index, decls);
 		auto body = parse_expression(tokens, out_index, out_index, decls);
 		result_expression = SinglePointer<Expression>::make_derived<While>(move(bool_expression), move(body));
+		decls.variables.pop_back();
+		decls.functions.pop_back();
+	}
+	else if(keywords::equals(tokens[begin], keywords::Key::Fun)) {
+		auto f_name = tokens.at(begin + 1).string();
+		if(tokens.at(begin + 2).string() != "(")
+			throw runtime_error("Invalid function declaration");
+
+		const Type* return_type;
+		vector<pair<string, reference_wrapper<const typing::Type>>> params;
+
+		auto j = begin + 2;
+		if(tokens.at(begin + 3).string() == ")") {
+			if(tokens.at(j + 2).string() == ":")
+				return_type = &BuiltInTypesContainer::instance().from_str(tokens.at(j + 3));
+			j += 4;
+		}
+		else {
+			do {
+				++j;
+				params.emplace_back(tokens.at(j), BuiltInTypesContainer::instance().from_str(tokens.at(j + 1)));
+				j += 2;
+			}
+			while(tokens.at(j).string() == ",");
+			if(tokens.at(j + 1).string() == ":")
+				return_type = &BuiltInTypesContainer::instance().from_str(tokens.at(j + 2));
+			j += 3;
+		}
+
+		Declarations f_decls;
+		f_decls.functions = decls.functions;
+		f_decls.functions.back().emplace(f_name, new FunctionDeclaration(f_name, params, *return_type));
+		f_decls.variables.emplace_back();
+
+		for(const auto& param : params) {
+			f_decls.variables.back().emplace(param.first, new VariableDeclaration(param.second, param.first));
+		}
+		result_expression = SinglePointer<Expression>::make_derived<FunctionDeclaration>(move(f_name), move(params), *return_type,
+			parse_expression(tokens, j, out_index, f_decls));
+
+		const auto& casted = (const FunctionDeclaration&)**result_expression;
+
+		decls.functions.back().emplace(casted.name(), &casted);
 	}
 	else {
 		const std::string& str = tokens[begin];
@@ -159,7 +205,6 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 							vector<SinglePointer<Expression>> args;
 
 							if (tokens.at(begin + 2).string() != ")") {
-
 								args.emplace_back(parse_expression(tokens, begin + 2, out_index, decls));
 								while (tokens.at(out_index).string() == ",")
 									args.emplace_back(parse_expression(tokens, out_index + 1, out_index, decls));
@@ -255,12 +300,28 @@ SinglePointer<Expression> parser::parse(const string& str) noexcept(false) {
 	var_decls.functions.emplace_back();
 	var_decls.functions.back().emplace("greater", new FunctionDeclaration("greater",
 		{{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
-		BuiltInTypesContainer::instance().boolean()));
+		BuiltInTypesContainer::instance().boolean(), SinglePointer<Expression>::make_derived<BooleanLiteral>(false)));
+	var_decls.functions.back().emplace("less", new FunctionDeclaration("less",
+																		  {{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
+																		  BuiltInTypesContainer::instance().boolean(), SinglePointer<Expression>::make_derived<BooleanLiteral>(false)));
+	var_decls.functions.back().emplace("not", new FunctionDeclaration("not",
+																		  {{"first", BuiltInTypesContainer::instance().boolean()}},
+																		  BuiltInTypesContainer::instance().boolean(), SinglePointer<Expression>::make_derived<BooleanLiteral>(false)));
 	var_decls.functions.back().emplace("subtract", new FunctionDeclaration("subtract",
 																		  {{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
-																		  BuiltInTypesContainer::instance().integer_4()));
+																		  BuiltInTypesContainer::instance().integer_4(), SinglePointer<Expression>::make_derived<IntegerLiteral>(0)));
+
+	var_decls.functions.back().emplace("add", new FunctionDeclaration("add",
+																		   {{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
+																		   BuiltInTypesContainer::instance().integer_4(), SinglePointer<Expression>::make_derived<IntegerLiteral>(0)));
+
 	var_decls.functions.back().emplace("multiply", new FunctionDeclaration("multiply",
 																		   {{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
-																		   BuiltInTypesContainer::instance().integer_4()));
+																		   BuiltInTypesContainer::instance().integer_4(), SinglePointer<Expression>::make_derived<IntegerLiteral>(0)));
+
+	var_decls.functions.back().emplace("a", new FunctionDeclaration("a",
+																		   {{"first", BuiltInTypesContainer::instance().integer_4()}},
+																		   BuiltInTypesContainer::instance().integer_4(), SinglePointer<Expression>::make_derived<IntegerLiteral>(0)));
+
 	return move(parse_expression_block(tokens, 0, size(tokens), var_decls));
 }

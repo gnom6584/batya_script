@@ -549,16 +549,16 @@ int main() {
 	auto b = batya_script::Compiler::compile(ss.str());
 
 	auto bc = b;
-	std::cout << "BYTECODE:" << std::endl;
-	for(int i = 0; i < bc.size();) {
-		std::cout << codes::dump_command(bc.data() + i) << std::endl;
-		i += 1 + codes::size_of[*(bc.data() + i)];
-	}
+//	std::cout << "BYTECODE:" << std::endl;
+//	for(int i = 0; i < bc.size();) {
+//		std::cout << i << " : " << codes::dump_command(bc.data() + i) << std::endl;
+//		i += 1 + codes::size_of[*(bc.data() + i)];
+//	}
 
 	Stack stack(1024);
-
-	Interpreter::run(bc, stack);
-
+	std::stack<size_t> headers;
+	Interpreter::run(bc, stack, headers);
+	std::cout << bc.size() << std::endl;
 	std::cout << *(int *)(stack.bytes());
 
 	return 0;

@@ -15,7 +15,7 @@ public:
 
 	explicit Interpreter(size_t stack_size_bytes) noexcept(true);
 
-	static void run(const std::vector<unsigned char>& bytecode, Stack& stack) noexcept(false);
+	static void run(const std::vector<unsigned char>& bytecode, Stack& stack, std::stack<size_t>& headers) noexcept(false);
 
 private:
 	Stack _stack;

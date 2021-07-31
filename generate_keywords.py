@@ -38,8 +38,8 @@ for f in os.listdir(keywords_dir):
 
 keys = [x[0] for x in key_words['keywords_eng.xml']]
 
-
-keys_hpp = 'namespace batya_script::resources::keywords {\n\n'
+keys_hpp = '#include <array>\n\n'
+keys_hpp += 'namespace batya_script::resources::keywords {\n\n'
 keys_hpp += 'enum class Key {\n'
 for key in keys:
     keys_hpp += '    ' + key.capitalize()
@@ -48,8 +48,6 @@ for key in keys:
 keys_hpp += '\n};\n'
 
 keys_hpp += '\n[[nodiscard]] constexpr const char* get_key_spelling(Key key) noexcept(true);\n'
-
-keys_hpp += '\n#include <array>\n\n'
 
 keys_hpp += f'static constexpr std::array<const char*, {len(keys)}> spelling = {{'
 for key in keys:

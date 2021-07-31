@@ -21,4 +21,5 @@
     <keyword key = "if" value = "if"/>
     <keyword key = "else" value = "else"/>
     <keyword key = "is" value = "is"/>
+    <keyword key = "fun" value = "fun"/>
 </resources>

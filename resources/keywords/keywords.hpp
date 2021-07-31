@@ -1,5 +1,5 @@
 //
-// Created by batya on 26.07.2021.
+// Created by Name on 30.07.2021.
 //
 
 #ifndef BATYA_SCRIPT_RESOURCES_KEYWORDS_KEYWORDS_HPP_
@@ -15,8 +15,8 @@ enum class Locale {
     Ru
 };
 
-constexpr std::array<std::array<const char*, 21>, 2> words = {
-std::array<const char*, 21> {
+constexpr std::array<std::array<const char*, 22>, 2> words = {
+std::array<const char*, 22> {
     "Nothing",
     "Bool",
     "I1",
@@ -37,9 +37,10 @@ std::array<const char*, 21> {
     "do",
     "if",
     "else",
-    "is"
+    "is",
+    "fun"
 },
-std::array<const char*, 21> {
+std::array<const char*, 22> {
     "Nothing",
     "Bool",
     "I1",
@@ -56,11 +57,12 @@ std::array<const char*, 21> {
     "false",
     "var",
     "val",
-    "while",
+    "for",
     "do",
     "if",
     "else",
-    "is"
+    "is",
+    "fun"
 }
 };
 

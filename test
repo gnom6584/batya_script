@@ -1,4 +1,7 @@
-var c = 13
-if false
-    c = 5
-c
+fun factorial(value I4): I4
+    if less(value, 2)
+        1
+    else
+        multiply(value, factorial(subtract(value, 1)))
+
+add(factorial(10), factorial(11))

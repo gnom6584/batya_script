@@ -7,11 +7,15 @@
 
 #include <vector>
 #include "../expression.hpp"
+#include "../../utility/single_pointer.hpp"
 
 namespace batya_script::ast::declarations {
 
 class FunctionDeclaration : public Expression {
 public:
+	FunctionDeclaration(std::string name, std::vector<std::pair<std::string, std::reference_wrapper<const typing::Type>>> parameters, const typing::Type& return_type,
+		utility::SinglePointer<Expression> body) noexcept(false);
+
 	FunctionDeclaration(std::string name, std::vector<std::pair<std::string, std::reference_wrapper<const typing::Type>>> parameters, const typing::Type& return_type) noexcept(false);
 
 	[[nodiscard]] const std::string& name() const noexcept(true);
@@ -20,10 +24,14 @@ public:
 
 	[[nodiscard]] const typing::Type& return_type() const noexcept(true);
 
+	[[nodiscard]] const Expression& body() const noexcept(true);
+
 private:
 	const std::string _name;
 
 	const std::vector<std::pair<std::string, std::reference_wrapper<const typing::Type>>> _parameters;
+
+	const utility::SinglePointer<Expression> _body;
 
 	const typing::Type& _return_type;
 };

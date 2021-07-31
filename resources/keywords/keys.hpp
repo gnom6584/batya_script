@@ -1,5 +1,5 @@
 //
-// Created by batya on 26.07.2021.
+// Created by Name on 30.07.2021.
 //
 
 #ifndef BATYA_SCRIPT_RESOURCES_KEYWORDS_KEYS_HPP_
@@ -30,12 +30,12 @@ enum class Key {
     Do,
     If,
     Else,
-    Is
+    Is,
+    Fun
 };
 
 [[nodiscard]] constexpr const char* get_key_spelling(Key key) noexcept(true);
-
-static constexpr std::array<const char*, 21> spelling = {    "Nothing",
+static constexpr std::array<const char*, 22> spelling = {    "Nothing",
     "Boolean",
     "Integer_1",
     "Unsigned_integer_1",
@@ -55,7 +55,8 @@ static constexpr std::array<const char*, 21> spelling = {    "Nothing",
     "do",
     "if",
     "else",
-    "is"
+    "is",
+    "fun"
 };
 
 constexpr const char* get_key_spelling(Key key) noexcept(true) {

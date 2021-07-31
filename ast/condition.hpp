@@ -22,7 +22,7 @@ public:
 
 	[[nodiscard]] const Expression& on_false_expression() const noexcept(false);
 
-	[[nodiscard]] bool has_expression() const noexcept(true);
+	[[nodiscard]] bool has_on_false_expression() const noexcept(true);
 
 private:
 

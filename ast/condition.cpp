@@ -43,6 +43,6 @@ const Expression& Condition::on_false_expression() const noexcept(false) {
 }
 
 
-bool Condition::has_expression() const noexcept(true) {
+bool Condition::has_on_false_expression() const noexcept(true) {
 	return _on_false_expression.has_value();
 }
