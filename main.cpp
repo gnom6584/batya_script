@@ -539,6 +539,32 @@ using namespace typing;
 #include <fstream>
 #include "compiler/compiler.hpp"
 
+struct A {
+	char a;
+	char b;
+	int z;
+	int g;
+
+};
+
+A fun(char b, char c, int z, int g) {
+	return A{b, c, z, g};
+}
+
+void f() {
+
+}
+
+std::ostream& operator << (std::ostream& os, A a) {
+	std::cout << (int)a.a << ", " << (int)a.b << (int)a.z << (int)a.g;
+}
+
+void addressOfTemporary(unsigned short &&v) {
+	for(int i = 0; i < 8; ++i)
+		std::cout << (int)*(&v + i) << std::endl;
+
+}
+
 int main() {
 
 	std::ifstream f("/mnt/c/Users/Name/CLionProjects/batya_script/test");
@@ -548,7 +574,7 @@ int main() {
 
 	auto b = batya_script::Compiler::compile(ss.str());
 
-	auto bc = b;
+	const auto& bc = b;
 //	std::cout << "BYTECODE:" << std::endl;
 //	for(int i = 0; i < bc.size();) {
 //		std::cout << i << " : " << codes::dump_command(bc.data() + i) << std::endl;

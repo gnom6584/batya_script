@@ -4,4 +4,9 @@ fun factorial(value I4): I4
     else
         multiply(value, factorial(subtract(value, 1)))
 
-add(factorial(10), factorial(11))
+var arr = malloc(40)
+var g = 5
+memset(add(arr, 1u8), &g, 4)
+var z = 0
+memset(&z, arr, 4)
+z

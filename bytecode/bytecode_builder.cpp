@@ -6,7 +6,7 @@
 using namespace batya_script::bytecode;
 
 BytecodeBuilder::BytecodeBuilder() noexcept(true)
-    : _bytecode({}), _position(0) {}
+ : _bytecode({}), _position(0) {}
 
 
 size_t BytecodeBuilder::position() const noexcept(true) {
@@ -67,6 +67,32 @@ void BytecodeBuilder::heap_free(size_t address) noexcept(true) {
     for(size_t i = 0; i < codes::size_of[codes::heap_free]; ++i)
         _bytecode.emplace_back();
     memcpy(_bytecode.data() + _position, &address, sizeof(size_t));
+   _position += sizeof(size_t);
+}
+
+
+void BytecodeBuilder::memset(size_t dst, size_t src, size_t bytes) noexcept(true) {
+    ++_position;
+    _bytecode.emplace_back(codes::memset);
+    for(size_t i = 0; i < codes::size_of[codes::memset]; ++i)
+        _bytecode.emplace_back();
+    memcpy(_bytecode.data() + _position, &dst, sizeof(size_t));
+   _position += sizeof(size_t);
+    memcpy(_bytecode.data() + _position, &src, sizeof(size_t));
+   _position += sizeof(size_t);
+    memcpy(_bytecode.data() + _position, &bytes, sizeof(size_t));
+   _position += sizeof(size_t);
+}
+
+
+void BytecodeBuilder::address_from_stack(size_t position, size_t out) noexcept(true) {
+    ++_position;
+    _bytecode.emplace_back(codes::address_from_stack);
+    for(size_t i = 0; i < codes::size_of[codes::address_from_stack]; ++i)
+        _bytecode.emplace_back();
+    memcpy(_bytecode.data() + _position, &position, sizeof(size_t));
+   _position += sizeof(size_t);
+    memcpy(_bytecode.data() + _position, &out, sizeof(size_t));
    _position += sizeof(size_t);
 }
 

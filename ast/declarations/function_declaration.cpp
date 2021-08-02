@@ -25,7 +25,7 @@ FunctionDeclaration::FunctionDeclaration(string name, vector<pair<string, refere
 		parameters_names.emplace(parameter.first);
 	}
 
-	if(return_type != _body->result_type())
+	if(return_type != _body.value()->result_type())
 		throw runtime_error("Invalid return and body types");
 
 }
@@ -46,14 +46,25 @@ const Type& FunctionDeclaration::return_type() const noexcept(true) {
 }
 
 
-const Expression& declarations::FunctionDeclaration::body() const noexcept(true) {
-	return *_body;
+const Expression& declarations::FunctionDeclaration::body() const noexcept(false) {
+	if(!_body.has_value())
+		throw runtime_error("No body");
+	return *_body.value();
 }
 
 
 declarations::FunctionDeclaration::FunctionDeclaration(std::string name,
 													   std::vector<std::pair<std::string, std::reference_wrapper<const typing::Type>>> parameters,
 													   const typing::Type& return_type) noexcept(false)
-	: Expression(BuiltInTypesContainer::instance().nothing()), _name(move(name)), _parameters(move(parameters)), _return_type(return_type), _body(move((utility::SinglePointer<Expression>)(nullptr))) {
+	: Expression(BuiltInTypesContainer::instance().nothing()), _name(move(name)), _parameters(move(parameters)), _return_type(return_type), _body({}) {
 
+}
+
+
+std::string declarations::FunctionDeclaration::get_signature() const noexcept(true) {
+	std::string sig = name();
+	for(const auto&[name, type] : _parameters)
+		sig += (type.get().name());
+
+	return sig;
 }

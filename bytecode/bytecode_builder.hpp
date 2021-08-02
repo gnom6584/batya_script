@@ -1,5 +1,5 @@
 //
-// Created by Name on 29.07.2021.
+// Created by Name on 01.08.2021.
 //
 
 #ifndef BATYA_SCRIPT_BYTECODE_BYTECODE_BUILDER_HPP_
@@ -29,6 +29,10 @@ public:
     void heap_allocate(size_t n_bytes, size_t out_address) noexcept(true); 
 
     void heap_free(size_t address) noexcept(true); 
+
+    void memset(size_t dst, size_t src, size_t bytes) noexcept(true); 
+
+    void address_from_stack(size_t position, size_t out) noexcept(true); 
 
     void stack_push() noexcept(true); 
 

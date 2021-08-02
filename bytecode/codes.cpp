@@ -44,6 +44,31 @@ switch(*ptr) {
         offset += sizeof(size_t);
         return std::move(ss.str());
     }
+    case codes::memset: {
+        std::stringstream ss;
+        ss << "memset: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::address_from_stack: {
+        std::stringstream ss;
+        ss << "address_from_stack: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
     case codes::stack_push: {
         std::stringstream ss;
         ss << "stack_push: ";

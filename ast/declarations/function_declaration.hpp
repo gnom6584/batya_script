@@ -8,6 +8,7 @@
 #include <vector>
 #include "../expression.hpp"
 #include "../../utility/single_pointer.hpp"
+#include "../function_signature.hpp"
 
 namespace batya_script::ast::declarations {
 
@@ -24,14 +25,16 @@ public:
 
 	[[nodiscard]] const typing::Type& return_type() const noexcept(true);
 
-	[[nodiscard]] const Expression& body() const noexcept(true);
+	[[nodiscard]] std::string get_signature() const noexcept(true);
+
+	[[nodiscard]] const Expression& body() const noexcept(false);
 
 private:
 	const std::string _name;
 
 	const std::vector<std::pair<std::string, std::reference_wrapper<const typing::Type>>> _parameters;
 
-	const utility::SinglePointer<Expression> _body;
+	const std::optional<utility::SinglePointer<Expression>> _body;
 
 	const typing::Type& _return_type;
 };

@@ -18,6 +18,9 @@ using namespace declarations;
 FunctionInvocation::FunctionInvocation(const FunctionDeclaration& declaration, std::vector<SinglePointer<Expression>> args) noexcept(false)
 	: Expression(declaration.return_type()), _declaration(declaration), _arguments(move(args)) {
 
+	if(_arguments.size() != declaration.parameters().size())
+		throw runtime_error("Invalid function invocation args");
+
 	for(auto i = 0; i < size(_arguments); ++i)
 		if(_arguments[i]->result_type() != _declaration.parameters()[i].second)
 			throw runtime_error("Invalid function invocation args");

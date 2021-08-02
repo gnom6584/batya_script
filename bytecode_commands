@@ -3,6 +3,9 @@ stack_free (size_t n_bytes)
 heap_allocate (size_t n_bytes, size_t out_address)
 heap_free (size_t address)
 
+memset(size_t dst, size_t src, size_t bytes)
+address_from_stack(size_t position, size_t out)
+
 stack_push ()
 stack_pop ()
 

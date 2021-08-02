@@ -7,6 +7,7 @@
 
 #include "type.hpp"
 #include "common_type.hpp"
+#include "pointer_type.hpp"
 
 //////////////////////////////////////////////////////
 //                  !ХУЙНЯ ПОЛНАЯ!                  //
@@ -44,6 +45,8 @@ public:
 
 	[[nodiscard]] const Type& from_str(const std::string& str) const noexcept(false);
 
+	[[nodiscard]] const PointerType& from_str_ptr(const std::string& str) const noexcept(false);
+
 	[[nodiscard]] static const BuiltInTypesContainer& instance() noexcept(true);
 
 private:
@@ -72,6 +75,30 @@ private:
 	CommonType _float_4;
 
 	CommonType _float_8;
+
+	PointerType _boolean_ptr;
+
+	PointerType _nothing_ptr;
+
+	PointerType _integer_1_ptr;
+
+	PointerType _unsigned_integer_1_ptr;
+
+	PointerType _integer_2_ptr;
+
+	PointerType _unsigned_integer_2_ptr;
+
+	PointerType _integer_4_ptr;
+
+	PointerType _unsigned_integer_4_ptr;
+
+	PointerType _integer_8_ptr;
+
+	PointerType _unsigned_integer_8_ptr;
+
+	PointerType _float_4_ptr;
+
+	PointerType _float_8_ptr;
 };
 
 }

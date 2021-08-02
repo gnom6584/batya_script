@@ -5,6 +5,7 @@
 #include <stack>
 #include <cstring>
 #include <cmath>
+#include <iostream>
 #include "interpreter.hpp"
 #include "codes.hpp"
 
@@ -127,15 +128,29 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::
 				break;
 			};
 			case codes::heap_allocate: {
-				auto bytes = extract<size_t>(&ptr);
+				auto bytes = *(int*)(stack_ptr + extract<size_t>(&ptr));
+
 				auto allocated_ptr = (size_t)malloc(bytes);
 				auto out_ptr = extract<size_t>(&ptr);
-				*(size_t*)out_ptr = allocated_ptr;
+				*(size_t*)(stack_ptr + out_ptr) = allocated_ptr;
 				break;
 			}
 			case codes::heap_free: {
 				auto address = *(size_t*)extract<size_t>(&ptr);
 				free((void*)address);
+				break;
+			}
+			case codes::address_from_stack: {
+				auto address = (size_t)(stack_ptr + extract<size_t>(&ptr));
+				auto out_address = stack_ptr + extract<size_t>(&ptr);
+				memcpy((void*)out_address, &address, sizeof(size_t));
+				break;
+			}
+			case codes::memset: {
+				auto dst = *(size_t*)(stack_ptr + extract<size_t>(&ptr));
+				auto src = *(size_t*)(stack_ptr + extract<size_t>(&ptr));
+				auto bytes = *(int*)(stack_ptr + extract<size_t>(&ptr));
+				memcpy((void*)dst, (void*)src, bytes);
 				break;
 			}
 			case codes::stack_push: {
