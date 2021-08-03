@@ -128,7 +128,7 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::
 				break;
 			};
 			case codes::heap_allocate: {
-				auto bytes = *(int*)(stack_ptr + extract<size_t>(&ptr));
+				auto bytes = *(size_t*)(stack_ptr + extract<size_t>(&ptr));
 
 				auto allocated_ptr = (size_t)malloc(bytes);
 				auto out_ptr = extract<size_t>(&ptr);
@@ -146,10 +146,10 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::
 				memcpy((void*)out_address, &address, sizeof(size_t));
 				break;
 			}
-			case codes::memset: {
-				auto dst = *(size_t*)(stack_ptr + extract<size_t>(&ptr));
-				auto src = *(size_t*)(stack_ptr + extract<size_t>(&ptr));
-				auto bytes = *(int*)(stack_ptr + extract<size_t>(&ptr));
+			case codes::memcpy: {
+				auto dst = *(uintptr_t*)(stack_ptr + extract<uintptr_t>(&ptr));
+				auto src = *(uintptr_t*)(stack_ptr + extract<uintptr_t>(&ptr));
+				auto bytes = *(size_t*)(stack_ptr + extract<size_t>(&ptr));
 				memcpy((void*)dst, (void*)src, bytes);
 				break;
 			}
@@ -216,6 +216,13 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::
 				break;
 			}
 
+			case codes::int32_to_u_size: {
+				auto dst = stack_ptr + extract<size_t>(&ptr);
+				auto src = stack_ptr + extract<size_t>(&ptr);
+				*(size_t*)dst = (size_t)*(int*)(src);
+				break;
+			}
+
 			case codes::signal: {
 				auto str = extract<const char*>(&ptr);
 				printf("%s", str);
@@ -238,6 +245,8 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::
 			WITH_U(SET, long long int, integer_64)
 			SET(float, float_32)
 			SET(double, float_64)
+			SET(uintptr_t, ptr)
+			SET(size_t, usize)
 
 			WITH_U(LESS, char, integer_8)
 			WITH_U(LESS, short, integer_16)
@@ -245,6 +254,8 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::
 			WITH_U(LESS, long long int, integer_64)
 			LESS(float, float_32)
 			LESS(double, float_64)
+			LESS(uintptr_t, ptr)
+			LESS(size_t, usize)
 
 			WITH_U(ARITHMETIC, char, integer_8)
 			WITH_U(ARITHMETIC, short, integer_16)
@@ -252,12 +263,15 @@ void Interpreter::run(const vector<unsigned char>& bytecode, Stack& stack, std::
 			WITH_U(ARITHMETIC, long long int, integer_64)
 			ARITHMETIC(float, float_32)
 			ARITHMETIC(double, float_64)
+			ARITHMETIC(uintptr_t, ptr)
+			ARITHMETIC(size_t, usize)
 
 			WITH_U(MODULUS, char, integer_8)
 			WITH_U(MODULUS, short, integer_16)
 			WITH_U(MODULUS, int, integer_32)
 			WITH_U(MODULUS, long long int, integer_64)
-
+			MODULUS(uintptr_t, ptr)
+			MODULUS(size_t, usize)
 			FLOAT_MODULUS(float, float_32)
 			FLOAT_MODULUS(double, float_64)
 

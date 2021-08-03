@@ -5,12 +5,17 @@
 #include "declaration_reference.hpp"
 
 
-batya_script::ast::DeclarationReference::DeclarationReference(const batya_script::ast::declarations::VariableDeclaration& variable_declaration) noexcept(true)
-	: Expression(variable_declaration.result_type()), _variable_declaration(variable_declaration) {
+batya_script::ast::DeclarationReference::DeclarationReference(const typing::Type& type, std::vector<std::string> members, size_t offset) noexcept(true)
+	: Expression(type), _members(move(members)), _type(type), _offset(offset) {
 
 }
 
 
-const batya_script::ast::declarations::VariableDeclaration& batya_script::ast::DeclarationReference::variable_declaration() const noexcept(true) {
-	return _variable_declaration;
+const std::vector<std::string>& batya_script::ast::DeclarationReference::members() const noexcept(true) {
+	return _members;
+}
+
+
+const size_t batya_script::ast::DeclarationReference::offset() const noexcept(true) {
+	return _offset;
 }

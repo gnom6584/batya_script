@@ -1,5 +1,5 @@
 //
-// Created by Name on 30.07.2021.
+// Created by Name on 03.08.2021.
 //
 
 #ifndef BATYA_SCRIPT_RESOURCES_KEYWORDS_KEYS_HPP_
@@ -22,6 +22,8 @@ enum class Key {
     Unsigned_integer_8,
     Float_4,
     Float_8,
+    Ptr,
+    Usize,
     True,
     False,
     Var,
@@ -31,11 +33,12 @@ enum class Key {
     If,
     Else,
     Is,
-    Fun
+    Fun,
+    Struct
 };
 
 [[nodiscard]] constexpr const char* get_key_spelling(Key key) noexcept(true);
-static constexpr std::array<const char*, 22> spelling = {    "Nothing",
+static constexpr std::array<const char*, 25> spelling = {    "Nothing",
     "Boolean",
     "Integer_1",
     "Unsigned_integer_1",
@@ -47,6 +50,8 @@ static constexpr std::array<const char*, 22> spelling = {    "Nothing",
     "Unsigned_integer_8",
     "Float_4",
     "Float_8",
+    "Ptr",
+    "USize",
     "true",
     "false",
     "var",
@@ -56,7 +61,8 @@ static constexpr std::array<const char*, 22> spelling = {    "Nothing",
     "if",
     "else",
     "is",
-    "fun"
+    "fun",
+    "struct"
 };
 
 constexpr const char* get_key_spelling(Key key) noexcept(true) {

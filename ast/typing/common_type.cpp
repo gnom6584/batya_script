@@ -8,21 +8,16 @@
 
 using namespace batya_script::ast::typing;
 
-CommonType::CommonType(std::string name, size_t size) noexcept(true) : _name(std::move(name)), _size(size) {}
+CommonType::CommonType(std::string name, size_t size, std::vector<std::pair<std::string, std::reference_wrapper<const typing::Type>>> fields) noexcept(true)
+	: _name(std::move(name)), _size(size), _fields(std::move(fields)) {}
 
+
+const std::vector<std::pair<std::string, std::reference_wrapper<const Type>>>& CommonType::fields() const noexcept(true) {
+	return _fields;
+}
 
 std::string_view CommonType::name() const noexcept(true) {
 	return _name;
-}
-
-
-void CommonType::add_binary_operator(std::string sign, BinaryOperator binary_operator) noexcept(true) {
-	_binary_operators.emplace(std::move(sign), binary_operator);
-}
-
-
-void CommonType::add_unary_operator(std::string sign, UnaryOperator unary_operator) noexcept(true) {
-	_unary_operators.emplace(std::move(sign), unary_operator);
 }
 
 

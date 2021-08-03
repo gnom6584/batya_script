@@ -10,30 +10,20 @@ using namespace batya_script::ast::typing;
 using namespace batya_script::resources::keywords;
 
 BuiltInTypesContainer::BuiltInTypesContainer() noexcept(true) :
-	_nothing(CommonType(get_key_spelling(Key::Nothing), 0)),
-	_boolean(CommonType(get_key_spelling(Key::Boolean), 1)),
-	_integer_1(CommonType(get_key_spelling(Key::Integer_1), 1)),
-	_unsigned_integer_1(CommonType(get_key_spelling(Key::Unsigned_integer_1), 1)),
-	_integer_2(CommonType(get_key_spelling(Key::Integer_2), 2)),
-	_unsigned_integer_2(CommonType(get_key_spelling(Key::Unsigned_integer_2), 2)),
-	_integer_4(CommonType(get_key_spelling(Key::Integer_4), 4)),
-	_unsigned_integer_4(CommonType(get_key_spelling(Key::Unsigned_integer_4), 4)),
-	_integer_8(CommonType(get_key_spelling(Key::Integer_8), 8)),
-	_unsigned_integer_8(CommonType(get_key_spelling(Key::Unsigned_integer_8), 8)),
-	_float_4(CommonType(get_key_spelling(Key::Float_4), 4)),
-	_float_8(CommonType(get_key_spelling(Key::Float_8), 8)),
-	_nothing_ptr(_nothing),
-	_boolean_ptr(_boolean),
-	_integer_1_ptr(_integer_1),
-	_unsigned_integer_1_ptr(_unsigned_integer_1),
-	_integer_2_ptr(_integer_2),
-	_unsigned_integer_2_ptr(_unsigned_integer_2),
-	_integer_4_ptr(_integer_4),
-	_unsigned_integer_4_ptr(_unsigned_integer_4),
-	_integer_8_ptr(_integer_8),
-	_unsigned_integer_8_ptr(_unsigned_integer_8),
-	_float_4_ptr(_float_4),
-	_float_8_ptr(_float_8)
+	_nothing(CommonType("Nothing", 0)),
+	_boolean(CommonType("Bool", sizeof(bool))),
+	_integer_1(CommonType("I1", sizeof(char))),
+	_unsigned_integer_1(CommonType("UI", sizeof(unsigned char))),
+	_integer_2(CommonType("I2", sizeof(short))),
+	_unsigned_integer_2(CommonType("U2", sizeof(unsigned short))),
+	_integer_4(CommonType("I4", sizeof(int))),
+	_unsigned_integer_4(CommonType("U4", sizeof(unsigned int))),
+	_integer_8(CommonType("I8", sizeof(int64_t))),
+	_unsigned_integer_8(CommonType("U8", sizeof(uint64_t))),
+	_float_4(CommonType("F4", sizeof(float))),
+	_float_8(CommonType("F8", sizeof(double ))),
+	_ptr(CommonType("Ptr", sizeof(uintptr_t))),
+	_u_size(CommonType("USize", sizeof(size_t)))
 	{
 	}
 
@@ -103,6 +93,15 @@ const Type& BuiltInTypesContainer::float_8() const noexcept(true) {
 	return _float_8;
 }
 
+const Type& BuiltInTypesContainer::ptr() const noexcept(true) {
+	return _ptr;
+}
+
+
+const Type& BuiltInTypesContainer::u_size() const noexcept(true) {
+	return _u_size;
+}
+
 //ЕБАЛ
 const Type& BuiltInTypesContainer::from_str(const std::string& str) const noexcept(false) {
 	if(equals(str, Key::Boolean))
@@ -127,33 +126,10 @@ const Type& BuiltInTypesContainer::from_str(const std::string& str) const noexce
 		return _float_4;
 	else if(equals(str, Key::Float_8))
 		return _float_8;
+	else if(equals(str, Key::Ptr))
+		return _ptr;
+	else if(equals(str, Key::Usize))
+		return _u_size;
 	throw std::runtime_error("Undefined built-in type: " + str);
 }
-
-const PointerType& BuiltInTypesContainer::from_str_ptr(const std::string& str) const noexcept(false) {
-	if(equals(str, Key::Boolean))
-		return _boolean_ptr;
-	if(equals(str, Key::Integer_1))
-		return _integer_1_ptr;
-	else if(equals(str, Key::Unsigned_integer_1))
-		return _unsigned_integer_1_ptr;
-	if(equals(str, Key::Integer_2))
-		return _integer_2_ptr;
-	else if(equals(str, Key::Unsigned_integer_2))
-		return _unsigned_integer_2_ptr;
-	if(equals(str, Key::Integer_4))
-		return _integer_4_ptr;
-	else if(equals(str, Key::Unsigned_integer_4))
-		return _unsigned_integer_4_ptr;
-	if(equals(str, Key::Integer_8))
-		return _integer_8_ptr;
-	else if(equals(str, Key::Unsigned_integer_8))
-		return _unsigned_integer_8_ptr;
-	if(equals(str, Key::Float_4))
-		return _float_4_ptr;
-	else if(equals(str, Key::Float_8))
-		return _float_8_ptr;
-	throw std::runtime_error("Undefined built-in type: " + str);
-}
-
 

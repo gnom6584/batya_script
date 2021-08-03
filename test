@@ -1,12 +1,34 @@
-fun factorial(value I4): I4
+struct A
+    first I4,
+    second I4
+
+fun add(left A, right A) -> A {
+    var result A
+    result.first = add(left.first, right.first)
+    result.second = add(left.second, right.second)
+    result
+}
+
+fun factorial(value I4) -> I4
     if less(value, 2)
         1
     else
         multiply(value, factorial(subtract(value, 1)))
 
-var arr = malloc(40)
-var g = 5
-memset(add(arr, 1u8), &g, 4)
-var z = 0
-memset(&z, arr, 4)
-z
+var l A
+l.first = 4
+l.second = factorial(4)
+
+var r A
+r.first = 1
+r.second = factorial(2)
+
+var res = add(l, r)
+
+var array = malloc(40us)
+
+var i = 0
+for less(i, 5) {
+    memcpy(add(array, multiply(i, 8us)), &res, 8us)
+    i = add(i, 1)
+}

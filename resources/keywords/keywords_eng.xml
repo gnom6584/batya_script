@@ -12,6 +12,8 @@
     <keyword key="Unsigned_integer_8" value="U8"/>
     <keyword key="Float_4" value="F4"/>
     <keyword key="Float_8" value="F8"/>
+    <keyword key="Ptr" value="Ptr"/>
+    <keyword key="USize" value="USize"/>
     <keyword key = "true" value = "true"/>
     <keyword key = "false" value = "false"/>
     <keyword key = "var" value = "var"/>
@@ -22,4 +24,5 @@
     <keyword key = "else" value = "else"/>
     <keyword key = "is" value = "is"/>
     <keyword key = "fun" value = "fun"/>
+    <keyword key = "struct" value = "struct"/>
 </resources>

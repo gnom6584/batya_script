@@ -16,6 +16,7 @@
 #include "../ast/declarations/declaration.hpp"
 #include "../ast/declarations/function_declaration.hpp"
 #include "../ast/declarations/variable_declaration.hpp"
+#include "../ast/declarations/struct_declaration.hpp"
 #include "../ast/declaration_reference.hpp"
 #include "../ast/expression.hpp"
 #include "../ast/expression_block.hpp"
@@ -34,6 +35,7 @@
 #include "../ast/while.hpp"
 #include "../ast/address.hpp"
 #include "../ast/literals/long_literal.hpp"
+#include "../ast/literals/usize_literal.hpp"
 
 using namespace std;
 using namespace batya_script;
@@ -76,10 +78,11 @@ struct Declarations {
 	}
 };
 
+size_t find_decl(Declarations& decls, const DeclarationReference& dref) {
+	return decls.find_variable(dref.members()[0]) + dref.offset();
+}
+
 void compile_expression(BytecodeBuilder& builder, const Expression& expr, Declarations& declarations, optional<size_t> out_result);
-
-void compile_u8_literal(BytecodeBuilder& builder, const UnsignedInteger8Literal& literal, Declarations& declarations, optional<size_t> an_optional);
-
 
 void compile_function_declaration(const FunctionDeclaration& expr, Declarations& declarations, optional<size_t> out_result) {
 	BytecodeBuilder builder;
@@ -111,6 +114,12 @@ void compile_integer_literal(BytecodeBuilder& builder, const IntegerLiteral& lit
 }
 
 void compile_u8_literal(BytecodeBuilder& builder, const UnsignedInteger8Literal& literal, Declarations& declarations, optional<size_t> out_result) {
+	if (out_result.has_value()) {
+		builder.set_unsigned_integer_64(out_result.value(), literal.value());
+	}
+}
+
+void compile_u_size_literal(BytecodeBuilder& builder, const USizeLiteral& literal, Declarations& declarations, optional<size_t> out_result) {
 	if (out_result.has_value()) {
 		builder.set_unsigned_integer_64(out_result.value(), literal.value());
 	}
@@ -207,7 +216,7 @@ void compile_assigment(BytecodeBuilder& builder, const Assignment& assignment, D
 	auto temp = declarations.sp;
 	compile_expression(builder, assignment.assignment_expression(), declarations, temp);
 
-	builder.copy(declarations.find_variable(assignment.declaration().name()), temp, assignment.result_type().size());
+	builder.copy(find_decl(declarations, assignment.declaration()), temp, assignment.result_type().size());
 
 	if (out_result.has_value())
 		builder.copy(out_result.value(), temp, assignment.result_type().size());
@@ -216,7 +225,7 @@ void compile_assigment(BytecodeBuilder& builder, const Assignment& assignment, D
 
 void compile_decl_reference(BytecodeBuilder& builder, const DeclarationReference& ref, Declarations& declarations, optional<size_t> out_result) {
 	if (out_result.has_value())
-		builder.copy(out_result.value(), declarations.find_variable(ref.variable_declaration().name()), ref.variable_declaration().result_type().size());
+		builder.copy(out_result.value(), find_decl(declarations, ref), ref.result_type().size());
 }
 
 
@@ -246,7 +255,7 @@ void compile_function_invocation(BytecodeBuilder& builder, const FunctionInvocat
 void compile_address(BytecodeBuilder& builder, const Address& address, Declarations& declarations, optional<size_t> out_result) {
 	compile_expression(builder, address.declaration_reference(), declarations, {});
 	if(out_result.has_value())
-		builder.address_from_stack(declarations.find_variable(address.declaration_reference().variable_declaration().name()), out_result.value());
+		builder.address_from_stack(declarations.find_variable(address.declaration_reference().members()[0]), out_result.value());
 }
 
 void compile_block(BytecodeBuilder& builder, const ExpressionBlock& block, Declarations& declarations, optional<size_t> out_result) {
@@ -282,6 +291,8 @@ void compile_expression(BytecodeBuilder& builder, const Expression& expr, Declar
 		compile_integer_literal(builder, (const IntegerLiteral&)expr, declarations, out_result);
 	} else if (typeid(expr) == typeid(const UnsignedInteger8Literal&)) {
 		compile_u8_literal(builder, (const UnsignedInteger8Literal&)expr, declarations, out_result);
+	} else if (typeid(expr) == typeid(const USizeLiteral&)) {
+		compile_u_size_literal(builder, (const USizeLiteral&)expr, declarations, out_result);
 	} else if (typeid(expr) == typeid(const BooleanLiteral&)) {
 		compile_boolean_literal(builder, (const BooleanLiteral&)expr, declarations, out_result);
 	} else if (typeid(expr) == typeid(const Assignment&)) {
@@ -300,6 +311,7 @@ void compile_expression(BytecodeBuilder& builder, const Expression& expr, Declar
 		compile_function_declaration((const FunctionDeclaration&)expr, declarations, out_result);
 	} else if (typeid(expr) == typeid(const Address&)) {
 		compile_address(builder, (const Address&)expr, declarations, out_result);
+	} else if (typeid(expr) == typeid(const StructDeclaration&)) {
 	} else
 		throw runtime_error("Not implemented");
 }
@@ -325,7 +337,7 @@ Bytecode Compiler::compile(const string& str) {
 		gb.inverse_boolean(0);
 		gb.and_boolean(0, 8);
 		auto* greater = new Bytecode(gb.build());
-		decls.fun_s.back()["greater"+ std::string(BuiltInTypesContainer::instance().integer_4().name()) + std::string(BuiltInTypesContainer::instance().integer_4().name())] = (size_t)greater;
+		decls.fun_s.back()["greater" + std::string(BuiltInTypesContainer::instance().integer_4().name()) + std::string(BuiltInTypesContainer::instance().integer_4().name())] = (size_t)greater;
 	}
 	{
 		BytecodeBuilder lb;
@@ -337,13 +349,20 @@ Bytecode Compiler::compile(const string& str) {
 		BytecodeBuilder ab;
 		ab.add_integer_32(0, 4);
 		auto* greater = new Bytecode(ab.build());
-		decls.fun_s.back()["add"+ std::string(BuiltInTypesContainer::instance().integer_4().name()) + std::string(BuiltInTypesContainer::instance().integer_4().name())] = (size_t)greater;
+		decls.fun_s.back()["add" + std::string(BuiltInTypesContainer::instance().integer_4().name()) + std::string(BuiltInTypesContainer::instance().integer_4().name())] = (size_t)greater;
+	}
+	{
+		BytecodeBuilder ab;
+		ab.int32_to_u_size(8, 8);
+		ab.add_ptr(0, 8);
+		auto* greater = new Bytecode(ab.build());
+		decls.fun_s.back()["add"+ std::string(BuiltInTypesContainer::instance().ptr().name()) + std::string(BuiltInTypesContainer::instance().integer_4().name())] = (size_t)greater;
 	}
 	{
 		BytecodeBuilder ab;
 		ab.add_unsigned_integer_64(0, 8);
 		auto* greater = new Bytecode(ab.build());
-		decls.fun_s.back()["add"+ std::string(BuiltInTypesContainer::instance().unsigned_integer_8().name()) + std::string(BuiltInTypesContainer::instance().unsigned_integer_8().name())] = (size_t)greater;
+		decls.fun_s.back()["add"+ std::string(BuiltInTypesContainer::instance().ptr().name()) + std::string(BuiltInTypesContainer::instance().u_size().name())] = (size_t)greater;
 	}
 	{
 		BytecodeBuilder ab;
@@ -367,13 +386,13 @@ Bytecode Compiler::compile(const string& str) {
 		BytecodeBuilder nb;
 		nb.heap_allocate(0, 0);
 		auto* nott = new Bytecode(nb.build());
-		decls.fun_s.back()["malloc" + std::string(BuiltInTypesContainer::instance().integer_4().name())] = (size_t)nott;
+		decls.fun_s.back()["malloc" + std::string(BuiltInTypesContainer::instance().u_size().name())] = (size_t)nott;
 	}
 	{
 		BytecodeBuilder nb;
-		nb.memset(0, 8, 16);
+		nb.memcpy(0, 8, 16);
 		auto* nott = new Bytecode(nb.build());
-		decls.fun_s.back()["memset" + std::string(BuiltInTypesContainer::instance().unsigned_integer_8().name()) + std::string(BuiltInTypesContainer::instance().unsigned_integer_8().name()) + std::string(BuiltInTypesContainer::instance().integer_4().name())] = (size_t)nott;
+		decls.fun_s.back()["memcpy" + std::string(BuiltInTypesContainer::instance().ptr().name()) + std::string(BuiltInTypesContainer::instance().ptr().name()) + std::string(BuiltInTypesContainer::instance().u_size().name())] = (size_t)nott;
 	}
 
 	compile_expression(builder, *ast, decls, result);

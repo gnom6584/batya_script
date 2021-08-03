@@ -12,6 +12,7 @@
 #include "../typing/built_in_types_container.hpp"
 #include "../../resources/keywords/keywords.hpp"
 #include "../declarations/variable_declaration.hpp"
+#include "../declarations/struct_declaration.hpp"
 #include "../binary_operator.hpp"
 #include "../unary_operator.hpp"
 #include "../literals/integer_literal.hpp"
@@ -24,7 +25,10 @@
 #include "../function_invocation.hpp"
 #include "../address.hpp"
 #include "../literals/long_literal.hpp"
+#include "../literals/usize_literal.hpp"
 #include <functional>
+#include <sstream>
+#include <numeric>
 
 using namespace std;
 using namespace batya_script;
@@ -35,6 +39,8 @@ using namespace typing;
 using namespace parser;
 using namespace utility;
 using namespace resources;
+
+std::vector<std::map<std::string, const Type*>> types;
 
 struct Declarations {
 	std::vector<std::map<std::string, const VariableDeclaration*>> variables;
@@ -58,6 +64,15 @@ struct Declarations {
 		}
 		throw runtime_error("Function with name (" + str + ") is not found!");
 	}
+
+	const Type& find_type(const std::string& str) {
+		for (auto it = rbegin(types); it != rend(types); ++it) {
+			auto f = it->find(str);
+			if(f != end(*it))
+				return *f->second;
+		}
+		throw runtime_error("Type with name (" + str + ") is not found!");
+	}
 };
 
 
@@ -66,16 +81,65 @@ struct Declarations {
 SinglePointer<Expression> parse_expression_block(const vector<Token>& tokens, size_t begin, size_t end, Declarations& decls);
 
 
+SinglePointer<Expression> parse_decl_ref(const vector<Token>& tokens, size_t begin, size_t& out_index, Declarations& decls) {
+	std::optional<SinglePointer<Expression>> result_expression;
+	const auto& var_decl = decls.find_variable(tokens[begin]);
+	std::vector<std::string> names;
+
+	auto i = begin;
+	names.emplace_back(tokens.at(i));
+	++i;
+	while (i < tokens.size() && tokens.at(i).string() == ".") {
+		++i;
+		names.emplace_back(tokens.at(i));
+		++i;
+	}
+	if(size(names) == 1) {
+		result_expression = SinglePointer<Expression>::make_derived<DeclarationReference>(
+			var_decl.result_type(),
+			move(names),
+			0
+		);
+	}
+	else {
+		auto* result_type = &var_decl.result_type();
+		size_t offset = 0;
+		for(int j = 1; j < size(names); ++j) {
+			const auto& fields = ((const CommonType*)result_type)->fields();
+			auto it = find_if(std::begin(fields), end(fields), [&](const auto& item) {
+				if(item.first == names[j])
+					return true;
+				else {
+					offset += item.second.get().size();
+					return false;
+				}
+			});
+			if(it != end(fields))
+				result_type = &it->second.get();
+			else
+				throw runtime_error("Type " + std::string(result_type->name()) + " doesn't contains field:" + names[j]);
+		}
+		result_expression = SinglePointer<Expression>::make_derived<DeclarationReference>(
+			*result_type,
+			move(names),
+			offset
+		);
+	}
+	out_index = i;
+	return move(result_expression.value());
+}
+
+
 SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t begin, size_t& out_index, Declarations& decls, bool check_operators = true) {
 	std::optional<SinglePointer<Expression>> result_expression;
 
 	if(keywords::equals(tokens[begin], keywords::Key::Var)) {
 		auto with_assigment = begin + 2 < size(tokens) ? tokens.at(begin + 2).string() == "=" : false;
-		auto with_assigment_and_explicit_type =  begin + 4 < size(tokens) ? tokens.at(begin + 4).string() == "=" : false;
+		auto with_assigment_and_explicit_type =  begin + 3 < size(tokens) ? tokens.at(begin + 3).string() == "=" : false;
 		if(with_assigment || with_assigment_and_explicit_type) {
 			if(with_assigment_and_explicit_type) {
-				const auto& expected_type = BuiltInTypesContainer::instance().from_str(tokens.at(begin + 3).string());
-				auto assign_expression = parse_expression(tokens, begin + 5, out_index, decls);
+				const auto& expected_type = decls.find_type(tokens.at(begin + 2).string());
+				auto assign_expression = parse_expression(tokens, begin + 4, out_index, decls);
 
 				result_expression =
 					SinglePointer<Expression>::make_derived<VariableDeclaration>(
@@ -97,17 +161,14 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 			}
 		}
 		else {
-			if(tokens.at(begin + 2).string() == ":") {
-				const auto& type = BuiltInTypesContainer::instance().from_str(tokens.at(begin + 3).string());
-				result_expression = SinglePointer<Expression>::make_derived<VariableDeclaration>(
-						type,
-						tokens.at(begin + 1).string()
-					);
-				decls.variables.back()[tokens.at(begin + 1).string()] = reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->());
-				out_index = begin + 4;
-			}
-			else
-				throw runtime_error("Expected type specifier!");
+			const auto& type = decls.find_type(tokens.at(begin + 2).string());
+			result_expression = SinglePointer<Expression>::make_derived<VariableDeclaration>(
+					type,
+					tokens.at(begin + 1).string()
+				);
+			decls.variables.back()[tokens.at(begin + 1).string()] = reinterpret_cast<const VariableDeclaration*>(result_expression.value().operator->());
+			out_index = begin + 3;
+
 		}
 	}
 	else if(keywords::equals(tokens[begin], keywords::Key::If)) {
@@ -143,20 +204,30 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 
 		auto j = begin + 2;
 		if(tokens.at(begin + 3).string() == ")") {
-			if(tokens.at(j + 2).string() == ":")
-				return_type = &BuiltInTypesContainer::instance().from_str(tokens.at(j + 3));
-			j += 4;
+
+			if(tokens.at(begin + 4).string() == "-" && tokens.at(begin + 5).string() == ">") {
+				return_type = &decls.find_type(tokens.at(begin + 6));
+				j = begin + 7;
+			}
+			else {
+				return_type = &BuiltInTypesContainer::instance().nothing();
+				j = begin + 4;
+			}
 		}
 		else {
 			do {
 				++j;
-				params.emplace_back(tokens.at(j), BuiltInTypesContainer::instance().from_str(tokens.at(j + 1)));
+				params.emplace_back(tokens.at(j),decls.find_type(tokens.at(j + 1)));
 				j += 2;
 			}
 			while(tokens.at(j).string() == ",");
-			if(tokens.at(j + 1).string() == ":")
-				return_type = &BuiltInTypesContainer::instance().from_str(tokens.at(j + 2));
-			j += 3;
+			if(tokens.at(j + 1).string() == "-" && tokens.at(j + 2).string() == ">") {
+				return_type = &decls.find_type(tokens.at(j + 3));
+				j += 4;
+			}
+			else {
+				return_type = &BuiltInTypesContainer::instance().nothing();
+			}
 		}
 
 		Declarations f_decls;
@@ -174,6 +245,27 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 		const auto& casted = (const FunctionDeclaration&)**result_expression;
 
 		decls.functions.back()[casted.get_signature()] = &casted;
+	}
+	else if(keywords::equals(tokens[begin], keywords::Key::Struct)) {
+		auto name = tokens.at(begin + 1);
+		vector<pair<string, reference_wrapper<const typing::Type>>> fields;
+		out_index = begin + 1;
+		do {
+			out_index += 1;
+			fields.emplace_back(tokens.at(out_index).string(), *types.back().at(tokens.at(out_index + 1)));
+			out_index += 2;
+		}
+		while (tokens.at(out_index).string() == ",");
+
+		result_expression = SinglePointer<Expression>::make_derived<StructDeclaration>(name, fields);
+
+		const auto sum = accumulate(std::begin(fields), end(fields), size_t(), [](size_t s, const auto& v) {
+			return s + v.second.get().size();
+		});
+
+
+		types.back()[name] = new typing::CommonType(name, sum, move(fields));
+
 	}
 	else {
 		const std::string& str = tokens[begin];
@@ -205,8 +297,17 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 			else {
 				if (std::isalpha(str[0])) {
 					if(begin + 1 < tokens.size()) {
-						if (tokens.at(begin + 1).string() == "=")
-							result_expression = SinglePointer<Expression>::make_derived<Assignment>(decls.find_variable(str), parse_expression(tokens, begin + 2, out_index, decls));
+
+						size_t k = begin;
+						while(k + 1 < tokens.size() && tokens.at(k + 1).string() == ".")
+							++++k;
+
+						if (k + 1 < tokens.size() && tokens.at(k + 1).string() == "=") {
+							size_t stub = 0;
+							auto ref = parse_decl_ref(tokens, begin, stub, decls);
+
+							result_expression = SinglePointer<Expression>::make_derived<Assignment>(std::move(ref), parse_expression(tokens, k + 2, out_index, decls));
+						}
 						else if (tokens.at(begin + 1).string() == "(") {
 
 							vector<SinglePointer<Expression>> args;
@@ -216,8 +317,9 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 								while (tokens.at(out_index).string() == ",")
 									args.emplace_back(parse_expression(tokens, out_index + 1, out_index, decls));
 								out_index++;
-							} else
-								out_index += 3;
+							}
+							else
+								out_index = begin + 3;
 
 							std::string pms = str;
 							for (auto& arg : args)
@@ -227,15 +329,11 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 
 							result_expression = SinglePointer<Expression>::make_derived<FunctionInvocation>(fd, move(args));
 						}
-						else {
-							result_expression = SinglePointer<Expression>::make_derived<DeclarationReference>(decls.find_variable(str));
-							out_index = begin + 1;
-						}
+						else
+							result_expression = parse_decl_ref(tokens, begin, out_index, decls);
 					}
-					else {
-						result_expression = SinglePointer<Expression>::make_derived<DeclarationReference>(decls.find_variable(str));
-						out_index = begin + 1;
-					}
+					else
+						result_expression = parse_decl_ref(tokens, begin, out_index, decls);
 				}
 				else {
 					auto is_integer = all_of(std::begin(str), end(str), [](char character) {
@@ -252,6 +350,21 @@ SinglePointer<Expression> parse_expression(const vector<Token>& tokens, size_t b
 							});
 							if (is_integer) {
 								result_expression = SinglePointer<Expression>::make_derived<UnsignedInteger8Literal>(stoull(str));
+								out_index = begin + 1;
+							}
+							else
+								throw runtime_error("Undefined key word: " + str);
+						}
+						else if(str.ends_with("us")) {
+							auto temp_str = str.substr(0, str.length() - 2);
+							auto is_integer = all_of(std::begin(temp_str), end(temp_str), [](char character) {
+								return std::isdigit(character);
+							});
+							if (is_integer) {
+								std::istringstream iss(str);
+								size_t size;
+								iss >> size;
+								result_expression = SinglePointer<Expression>::make_derived<USizeLiteral>(size);
 								out_index = begin + 1;
 							}
 							else
@@ -324,7 +437,63 @@ SinglePointer<Expression> parser::parse(const string& str) noexcept(false) {
 	const auto tokens = tokenize(str);
 	Declarations var_decls;
 	var_decls.functions.emplace_back();
-
+	types.emplace_back();
+	{
+		const auto& type = BuiltInTypesContainer::instance().nothing();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().boolean();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().integer_1();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().unsigned_integer_1();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().integer_2();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().unsigned_integer_2();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().integer_4();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().unsigned_integer_4();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().integer_8();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().unsigned_integer_8();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().float_4();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().float_8();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().ptr();
+		types.back().emplace(type.name(), &type);
+	}
+	{
+		const auto& type = BuiltInTypesContainer::instance().u_size();
+		types.back().emplace(type.name(), &type);
+	}
 	{
 		auto fd = new FunctionDeclaration("greater",
 										  {{"first", BuiltInTypesContainer::instance().integer_4()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
@@ -357,8 +526,14 @@ SinglePointer<Expression> parser::parse(const string& str) noexcept(false) {
 	}
 	{
 		auto fd = new FunctionDeclaration("add",
-										  {{"first", BuiltInTypesContainer::instance().unsigned_integer_8()}, {"second", BuiltInTypesContainer::instance().unsigned_integer_8()}},
-										  BuiltInTypesContainer::instance().unsigned_integer_8());
+										  {{"first", BuiltInTypesContainer::instance().ptr()}, {"second", BuiltInTypesContainer::instance().integer_4()}},
+										  BuiltInTypesContainer::instance().ptr());
+		var_decls.functions.back().emplace(fd->get_signature(), fd);
+	}
+	{
+		auto fd = new FunctionDeclaration("add",
+										  {{"first", BuiltInTypesContainer::instance().ptr()}, {"second", BuiltInTypesContainer::instance().u_size()}},
+										  BuiltInTypesContainer::instance().ptr());
 		var_decls.functions.back().emplace(fd->get_signature(), fd);
 	}
 	{
@@ -370,17 +545,17 @@ SinglePointer<Expression> parser::parse(const string& str) noexcept(false) {
 
 	{
 		auto fd = new FunctionDeclaration("malloc",
-										  {{"first", BuiltInTypesContainer::instance().integer_4()}},
-										  BuiltInTypesContainer::instance().unsigned_integer_8());
+										  {{"first", BuiltInTypesContainer::instance().u_size()}},
+										  BuiltInTypesContainer::instance().ptr());
 		var_decls.functions.back().emplace(fd->get_signature(), fd);
 	}
 
 	{
-		auto fd = new FunctionDeclaration("memset",
+		auto fd = new FunctionDeclaration("memcpy",
 										  {
-											  {"first", BuiltInTypesContainer::instance().unsigned_integer_8()},
-											  {"second", BuiltInTypesContainer::instance().unsigned_integer_8()},
-											  {"third", BuiltInTypesContainer::instance().integer_4()}
+											  {"first", BuiltInTypesContainer::instance().ptr()},
+											  {"second", BuiltInTypesContainer::instance().ptr()},
+											  {"third", BuiltInTypesContainer::instance().u_size()}
 										  },
 		BuiltInTypesContainer::instance().nothing());
 

@@ -44,9 +44,9 @@ switch(*ptr) {
         offset += sizeof(size_t);
         return std::move(ss.str());
     }
-    case codes::memset: {
+    case codes::memcpy: {
         std::stringstream ss;
-        ss << "memset: ";
+        ss << "memcpy: ";
         size_t offset = 1;
         ss << *(size_t*)(ptr + offset);
         ss << ", ";
@@ -390,6 +390,28 @@ switch(*ptr) {
         offset += sizeof(double);
         return std::move(ss.str());
     }
+    case codes::set_ptr: {
+        std::stringstream ss;
+        ss << "set_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(uintptr_t*)(ptr + offset);
+        offset += sizeof(uintptr_t);
+        return std::move(ss.str());
+    }
+    case codes::set_usize: {
+        std::stringstream ss;
+        ss << "set_usize: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
     case codes::less_integer_8: {
         std::stringstream ss;
         ss << "less_integer_8: ";
@@ -530,6 +552,34 @@ switch(*ptr) {
         offset += sizeof(size_t);
         return std::move(ss.str());
     }
+    case codes::less_ptr: {
+        std::stringstream ss;
+        ss << "less_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(uintptr_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(uintptr_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::less_usize: {
+        std::stringstream ss;
+        ss << "less_usize: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
     case codes::add_integer_8: {
         std::stringstream ss;
         ss << "add_integer_8: ";
@@ -632,6 +682,28 @@ switch(*ptr) {
     case codes::add_float_64: {
         std::stringstream ss;
         ss << "add_float_64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::add_ptr: {
+        std::stringstream ss;
+        ss << "add_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(uintptr_t*)(ptr + offset);
+        offset += sizeof(uintptr_t);
+        return std::move(ss.str());
+    }
+    case codes::add_usize: {
+        std::stringstream ss;
+        ss << "add_usize: ";
         size_t offset = 1;
         ss << *(size_t*)(ptr + offset);
         ss << ", ";
@@ -750,6 +822,28 @@ switch(*ptr) {
         offset += sizeof(size_t);
         return std::move(ss.str());
     }
+    case codes::subtract_ptr: {
+        std::stringstream ss;
+        ss << "subtract_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(uintptr_t*)(ptr + offset);
+        offset += sizeof(uintptr_t);
+        return std::move(ss.str());
+    }
+    case codes::subtract_usize: {
+        std::stringstream ss;
+        ss << "subtract_usize: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
     case codes::multiply_integer_8: {
         std::stringstream ss;
         ss << "multiply_integer_8: ";
@@ -852,6 +946,28 @@ switch(*ptr) {
     case codes::multiply_float_64: {
         std::stringstream ss;
         ss << "multiply_float_64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::multiply_ptr: {
+        std::stringstream ss;
+        ss << "multiply_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(uintptr_t*)(ptr + offset);
+        offset += sizeof(uintptr_t);
+        return std::move(ss.str());
+    }
+    case codes::multiply_usize: {
+        std::stringstream ss;
+        ss << "multiply_usize: ";
         size_t offset = 1;
         ss << *(size_t*)(ptr + offset);
         ss << ", ";
@@ -970,6 +1086,28 @@ switch(*ptr) {
         offset += sizeof(size_t);
         return std::move(ss.str());
     }
+    case codes::divide_ptr: {
+        std::stringstream ss;
+        ss << "divide_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(uintptr_t*)(ptr + offset);
+        offset += sizeof(uintptr_t);
+        return std::move(ss.str());
+    }
+    case codes::divide_usize: {
+        std::stringstream ss;
+        ss << "divide_usize: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
     case codes::modulus_integer_8: {
         std::stringstream ss;
         ss << "modulus_integer_8: ";
@@ -1072,6 +1210,193 @@ switch(*ptr) {
     case codes::modulus_float_64: {
         std::stringstream ss;
         ss << "modulus_float_64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::modulus_ptr: {
+        std::stringstream ss;
+        ss << "modulus_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(uintptr_t*)(ptr + offset);
+        offset += sizeof(uintptr_t);
+        return std::move(ss.str());
+    }
+    case codes::modulus_usize: {
+        std::stringstream ss;
+        ss << "modulus_usize: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::float64_to_float32: {
+        std::stringstream ss;
+        ss << "float64_to_float32: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::float64_to_int32: {
+        std::stringstream ss;
+        ss << "float64_to_int32: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::float64_to_int64: {
+        std::stringstream ss;
+        ss << "float64_to_int64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::float32_to_float64: {
+        std::stringstream ss;
+        ss << "float32_to_float64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::float32_to_int32: {
+        std::stringstream ss;
+        ss << "float32_to_int32: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::float32_to_int64: {
+        std::stringstream ss;
+        ss << "float32_to_int64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int32_to_int8: {
+        std::stringstream ss;
+        ss << "int32_to_int8: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int32_to_unsigned_int8: {
+        std::stringstream ss;
+        ss << "int32_to_unsigned_int8: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int32_to_int64: {
+        std::stringstream ss;
+        ss << "int32_to_int64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int32_to_int16: {
+        std::stringstream ss;
+        ss << "int32_to_int16: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int32_to_float64: {
+        std::stringstream ss;
+        ss << "int32_to_float64: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int32_to_float32: {
+        std::stringstream ss;
+        ss << "int32_to_float32: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int32_to_u_size: {
+        std::stringstream ss;
+        ss << "int32_to_u_size: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::int64_to_ptr: {
+        std::stringstream ss;
+        ss << "int64_to_ptr: ";
+        size_t offset = 1;
+        ss << *(size_t*)(ptr + offset);
+        ss << ", ";
+        offset += sizeof(size_t);
+        ss << *(size_t*)(ptr + offset);
+        offset += sizeof(size_t);
+        return std::move(ss.str());
+    }
+    case codes::ptr_to_int64: {
+        std::stringstream ss;
+        ss << "ptr_to_int64: ";
         size_t offset = 1;
         ss << *(size_t*)(ptr + offset);
         ss << ", ";

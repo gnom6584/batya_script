@@ -114,7 +114,7 @@ create_header_and_cpp_file(os.path.join("bytecode", 'codes'), command_codes, cpp
 builder_cpp = '#include <cstring>\n'
 builder_cpp += '#include "codes.hpp"\n\n'
 builder_cpp += 'using namespace batya_script::bytecode;\n\n'
-builder_hpp = '#include <vector>\n\n'
+builder_hpp = '#include <vector>\n#include <cstdint>\n\n'
 builder_hpp += 'namespace batya_script::bytecode {\n'
 builder_hpp += '\nusing Bytecode = std::vector<unsigned char>;\n\n'
 builder_hpp += 'class BytecodeBuilder {\n'
@@ -151,7 +151,7 @@ for command in commands:
     builder_cpp += f'    for(size_t i = 0; i < codes::size_of[codes::{command.name}]; ++i)\n'
     builder_cpp += '        _bytecode.emplace_back();\n'
     for arg in command.args:
-        builder_cpp += f'    memcpy(_bytecode.data() + _position, &{arg[1]}, sizeof({arg[0]}));\n'
+        builder_cpp += f'    std::memcpy(_bytecode.data() + _position, &{arg[1]}, sizeof({arg[0]}));\n'
         builder_cpp += f'   _position += sizeof({arg[0]});\n'
     builder_cpp += '}\n\n\n'
 

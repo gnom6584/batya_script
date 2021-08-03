@@ -8,19 +8,20 @@
 #include "expression.hpp"
 
 #include "declarations/variable_declaration.hpp"
+#include "declaration_reference.hpp"
 
 namespace batya_script::ast {
 
 class Assignment : public Expression {
 public:
-	Assignment(const declarations::VariableDeclaration& declaration, batya_script::utility::SinglePointer<Expression> assignment_expression) noexcept(false);
+	Assignment(batya_script::utility::SinglePointer<Expression> declaration, batya_script::utility::SinglePointer<Expression> assignment_expression) noexcept(false);
 
-	[[nodiscard]] const declarations::VariableDeclaration& declaration() const noexcept(true);
+	[[nodiscard]] const DeclarationReference& declaration() const noexcept(true);
 
 	[[nodiscard]] const Expression& assignment_expression() const noexcept(true);
 
 private:
-	const declarations::VariableDeclaration& _declaration;
+	const batya_script::utility::SinglePointer<Expression> _declaration;
 
 	const batya_script::utility::SinglePointer<Expression> _assignment_expression;
 };

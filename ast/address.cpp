@@ -7,7 +7,7 @@
 #include "typing/built_in_types_container.hpp"
 
 batya_script::ast::Address::Address(batya_script::utility::SinglePointer<batya_script::ast::Expression> reference) noexcept(true)
-	: Expression(typing::BuiltInTypesContainer::instance().unsigned_integer_8()), _reference(std::move(reference)) {
+	: Expression(typing::BuiltInTypesContainer::instance().ptr()), _reference(std::move(reference)) {
 
 }
 
