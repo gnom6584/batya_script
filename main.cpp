@@ -14,7 +14,6 @@
 #include <sstream>
 
 #include "ast/assignment.hpp"
-#include "ast/binary_operator.hpp"
 #include "ast/condition.hpp"
 #include "ast/declarations/declaration.hpp"
 #include "ast/declarations/function_declaration.hpp"
@@ -28,12 +27,9 @@
 #include "ast/literals/literal.hpp"
 #include "ast/parser/parser.hpp"
 #include "ast/parser/token.hpp"
-#include "ast/typing/binary_operator.hpp"
 #include "ast/typing/built_in_types_container.hpp"
 #include "ast/typing/common_type.hpp"
 #include "ast/typing/type.hpp"
-#include "ast/typing/unary_operator.hpp"
-#include "ast/unary_operator.hpp"
 #include "ast/while.hpp"
 
 using namespace batya_script::ast;
@@ -62,10 +58,15 @@ int main() {
 	Interpreter::run(bc, stack, headers);
 
 	std::cout << stack.header() << std::endl;
-	int* a = (int*)*(size_t*)(stack.bytes());
-	std::cout << *(int*)(stack.bytes());;
-//	for(int i = 0; i < 13; ++i) {
-//		std::cout << a[i] << std::endl;
-//	}
+	struct A {
+		int first;
+		int second;
+	};
+	A* a = (A*)*(size_t*)(stack.bytes());
+
+	//std::cout << *(int*)(stack.bytes());;
+	for(int i = 0; i < 5; ++i) {
+		std::cout << a[i].first << "," << a[i].second << std::endl;
+	}
 	return 0;
 }

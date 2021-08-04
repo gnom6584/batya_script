@@ -18,17 +18,35 @@ fun factorial(value I4) -> I4
 var l A
 l.first = 4
 l.second = factorial(4)
+r.second
 
 var r A
 r.first = 1
 r.second = factorial(2)
 
-var res = add(l, r)
+var res = add(l)
 
 var array = malloc(40us)
 
 var i = 0
+
+struct 4
+    228 I4
+
+struct S
+    5 4
+
+
+var z S
+var hui 4
+
 for less(i, 5) {
-    memcpy(add(array, multiply(i, 8us)), &res, 8us)
+    var temp A
+    temp.first = add(i, 12)
+    temp.second = factorial(i)
+    temp = add(temp, res)
+    memcpy(add(array, multiply(i, 8)), &temp, 8us)
     i = add(i, 1)
 }
+
+array

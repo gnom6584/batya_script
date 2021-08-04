@@ -13,8 +13,6 @@
 #include "../../resources/keywords/keywords.hpp"
 #include "../declarations/variable_declaration.hpp"
 #include "../declarations/struct_declaration.hpp"
-#include "../binary_operator.hpp"
-#include "../unary_operator.hpp"
 #include "../literals/integer_literal.hpp"
 #include "../literals/boolean_literal.hpp"
 #include "../condition.hpp"
@@ -75,11 +73,7 @@ struct Declarations {
 	}
 };
 
-
-
-
 SinglePointer<Expression> parse_expression_block(const vector<Token>& tokens, size_t begin, size_t end, Declarations& decls);
-
 
 SinglePointer<Expression> parse_decl_ref(const vector<Token>& tokens, size_t begin, size_t& out_index, Declarations& decls) {
 	std::optional<SinglePointer<Expression>> result_expression;
@@ -549,7 +543,12 @@ SinglePointer<Expression> parser::parse(const string& str) noexcept(false) {
 										  BuiltInTypesContainer::instance().ptr());
 		var_decls.functions.back().emplace(fd->get_signature(), fd);
 	}
-
+	{
+		auto fd = new FunctionDeclaration("free",
+										  {{"first", BuiltInTypesContainer::instance().ptr()}},
+										  BuiltInTypesContainer::instance().nothing());
+		var_decls.functions.back().emplace(fd->get_signature(), fd);
+	}
 	{
 		auto fd = new FunctionDeclaration("memcpy",
 										  {

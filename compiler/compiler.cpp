@@ -11,7 +11,6 @@
 
 #include "../bytecode/codes.hpp"
 #include "../ast/assignment.hpp"
-#include "../ast/binary_operator.hpp"
 #include "../ast/condition.hpp"
 #include "../ast/declarations/declaration.hpp"
 #include "../ast/declarations/function_declaration.hpp"
@@ -26,12 +25,9 @@
 #include "../ast/literals/literal.hpp"
 #include "../ast/parser/parser.hpp"
 #include "../ast/parser/token.hpp"
-#include "../ast/typing/binary_operator.hpp"
 #include "../ast/typing/built_in_types_container.hpp"
 #include "../ast/typing/common_type.hpp"
 #include "../ast/typing/type.hpp"
-#include "../ast/typing/unary_operator.hpp"
-#include "../ast/unary_operator.hpp"
 #include "../ast/while.hpp"
 #include "../ast/address.hpp"
 #include "../ast/literals/long_literal.hpp"
@@ -387,6 +383,12 @@ Bytecode Compiler::compile(const string& str) {
 		nb.heap_allocate(0, 0);
 		auto* nott = new Bytecode(nb.build());
 		decls.fun_s.back()["malloc" + std::string(BuiltInTypesContainer::instance().u_size().name())] = (size_t)nott;
+	}
+	{
+		BytecodeBuilder nb;
+		nb.heap_free(0);
+		auto* nott = new Bytecode(nb.build());
+		decls.fun_s.back()["free" + std::string(BuiltInTypesContainer::instance().ptr().name())] = (size_t)nott;
 	}
 	{
 		BytecodeBuilder nb;
